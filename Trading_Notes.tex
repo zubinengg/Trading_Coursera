@@ -1,0 +1,264 @@
+\documentclass[14pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, mathtools}
+\usepackage{tikz}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{parskip}
+\usepackage{tabularx}
+\usepackage[utf8]{inputenc}
+\usepackage{tgpagella}
+\usepackage[T1]{fontenc}
+\usepackage{array} % For better table features
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+
+\title{Introduction to Accounting: Lecture Notes}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{Definition of Accounting}
+\textbf{Accounting} is the formal collection, aggregation, analysis, and reporting of financial and non-financial data about a company to various end users.
+
+\begin{itemize}
+    \item \textbf{Mandated Reporting:} Public companies are required to release data periodically (typically quarterly and annually).
+    \item \textbf{End Users:} Data is provided to both internal parties (managers) and external parties (investors, creditors).
+\end{itemize}
+
+\section{The Three Types of Accounting}
+The field of accounting is broadly categorized into three distinct branches based on the target audience and purpose:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{@{}lll@{}}
+        \toprule
+        \textbf{Type} & \textbf{Primary Audience}   & \textbf{Purpose \& Characteristics}                   \\ \midrule
+        Financial     & External (Investors, Banks) & Assess performance, health, and credit risk.          \\
+        Managerial    & Internal (Management)       & Decision making: pricing, product mix, and budgeting. \\
+        Tax           & Tax Authorities (IRS)       & Compliance and estimation of tax liabilities.         \\ \bottomrule
+    \end{tabular}
+    \caption{Comparison of Accounting Branches}
+\end{table}
+
+\subsection{Financial Accounting}
+\begin{itemize}
+    \item \textbf{Primary Purpose:} To inform outsiders (equity investors, investment banks) for valuation and credit risk assessment.
+    \item \textbf{Secondary Purpose:} To monitor managers and ensure responsible use of company resources.
+    \item \textbf{Compliance:} Reports must follow specific rules and are audited by external parties for accuracy.
+\end{itemize}
+
+\subsection{Managerial Accounting}
+\begin{itemize}
+    \item \textbf{Purpose:} Capacity planning, determining production volumes, and evaluating product profitability.
+    \item \textbf{Format:} No fixed formats; reports are not audited.
+\end{itemize}
+
+\section{Accrual Accounting}
+
+
+\subsection{Meaning of Accrual Basis of Accounting}
+
+Under the \textbf{accrual basis of accounting}:
+A key element of financial accounting is the concept of \textbf{Accruals}. Financial statements are prepared on an accrual basis rather than a cash basis.
+\begin{itemize}
+    \item Income is recognized when it is earned, irrespective of when cash is received.
+    \item Expenses are recognized when they are incurred, irrespective of when cash is paid.
+\end{itemize}
+
+Thus, transactions are recorded at the time when the economic activity occurs, not when cash flows take place.
+
+\subsection{Meaning of Cash Basis of Accounting}
+
+Under the \textbf{cash basis of accounting}:
+\begin{itemize}
+    \item Income is recorded only when cash is actually received.
+    \item Expenses are recorded only when cash is actually paid.
+\end{itemize}
+
+This method ignores outstanding receivables, payables, and other non-cash adjustments.
+
+\subsection{Why Accrual Basis is Preferred for Financial Statements}
+
+\subsubsection{True and Fair View}
+
+Accrual accounting follows the matching principle, whereby expenses are matched with the revenues earned during the same accounting period. This results in a true and fair view of financial performance.
+
+\subsubsection{Correct Measurement of Profit}
+
+Cash receipts and payments may relate to different accounting periods. Accrual accounting ensures that only the income and expenses pertaining to the current period are considered.
+
+\subsubsection{Better Assessment of Financial Position}
+
+Assets such as receivables and liabilities such as outstanding expenses are recognized, providing a realistic picture of the financial position of the entity.
+
+\subsubsection{Comparability and Consistency}
+
+Financial statements prepared on an accrual basis are comparable across different periods and entities, facilitating better decision-making by users.
+
+\subsection{Key Principles}
+Transactions are recognized when the \textit{economic event} occurs, not necessarily when cash changes hands.
+\begin{enumerate}
+    \item \textbf{Revenue Recognition:} Revenue is reported when earned (delivery of product/service), measurable, and collection is reasonably certain.
+    \item \textbf{Matching Principle:} Expenses related to revenues must be recognized in the same period as the revenue itself.
+\end{enumerate}
+
+\subsection{The Fundamental Difference}
+The distinction between earnings and cash flow is often summarized by the adage:
+\begin{equation*}
+    \text{Cash Flow} = \text{Fact} \quad \longleftrightarrow \quad \text{Earnings} = \text{Opinion}
+\end{equation*}
+
+\subsection{Pros and Cons of Accrual Accounting}
+\begin{itemize}
+    \item \textbf{Advantages:} Provides timelier, decision-relevant information by reflecting economic reality.
+    \item \textbf{Disadvantages:} Relies on managerial judgment and estimates, making it potentially less reliable than raw cash flow data.
+\end{itemize}
+
+
+\subsection{Summary of Financial Statements}
+Accrual accounting directly results in the creation of two primary statements:
+\begin{itemize}
+    \item \textbf{Income Statement:} Also known as the Profit and Loss (P\&L) statement.
+    \item \textbf{Balance Sheet:} Reflects the net financial position of the company.
+\end{itemize}
+
+\noindent\rule{\linewidth}{1pt}
+
+\section{Introduction to the Balance Sheet}
+The \textbf{Balance Sheet} captures the financial position of a company as of a \textit{particular date} (e.g., the end of a quarter or the end of a fiscal year). It acts as a snapshot in time, showing what a company owns and what it owes.
+
+\subsection{The Accounting Equation}
+The balance sheet derives its name from the fact that it must always balance. This relationship is expressed through the fundamental accounting equation:
+
+\begin{equation}
+    \text{Assets} = \text{Liabilities} + \text{Shareholders' Equity}
+\end{equation}
+
+\begin{itemize}
+    \item \textbf{Assets:} Represent how the company \textit{uses} its resources.
+    \item \textbf{Liabilities \& Equity:} Represent \textit{where} the company gets its resources from.
+\end{itemize}
+
+\subsection{Components of the Balance Sheet}
+
+\subsubsection{Assets}
+Assets are resources owned by the company used to generate future economic benefits (higher cash inflows or lower cash outflows).
+\begin{itemize}
+    \item \textbf{Classification:}
+          \begin{itemize}
+              \item \textbf{Current Assets:} Expected to be converted to cash, sold, or consumed within \textbf{one year}. (Examples: Cash, equivalents, inventory).
+              \item \textbf{Non-current Assets:} Expected to be realized after one year. (Examples: Property, Plant, and Equipment [PP\&E], Patents, Trademarks).
+          \end{itemize}
+\end{itemize}
+
+\subsubsection{Liabilities}
+Liabilities represent the company’s economic obligations to outsiders.
+\begin{itemize}
+    \item \textbf{Classification:}
+          \begin{itemize}
+              \item \textbf{Current Liabilities:} Obligations expected to be paid within \textbf{one year}. (Examples: Accounts payable, short-term borrowing).
+              \item \textbf{Non-current Liabilities:} Obligations expected to be settled after one year. (Example: Long-term debt).
+          \end{itemize}
+\end{itemize}
+
+\subsubsection{Shareholders' Equity}
+This represents the owners' claims on the total assets of the company.
+\begin{itemize}
+    \item \textbf{Contributed Capital:} Investments made by the owners.
+    \item \textbf{Retained Earnings:} The aggregate undistributed profits of the company over time.
+\end{itemize}
+
+\subsection{Key Characteristics}
+\begin{itemize}
+    \item \textbf{Historical Cost:} Items are recorded at their original purchase price. They are generally \textbf{not} updated to reflect current market values.
+    \item \textbf{Presentation:}
+          \begin{itemize}
+              \item Typically, Assets are on the left (or top), while Liabilities and Equity are on the right (or bottom).
+              \item Formats may vary internationally based on local accounting standards.
+          \end{itemize}
+\end{itemize}
+
+\noindent\rule{\linewidth}{1pt}
+
+
+\section{Overview of Assets}
+Assets represent how a company uses its resources to generate future economic benefits. On the balance sheet, assets are categorized based on their liquidity and expected lifespan.
+
+\subsection{Current Assets}
+Current assets are resources expected to be sold, converted to cash, or consumed within \textbf{one year}.
+
+\subsubsection{Cash and Cash Equivalents}
+This is the most liquid category. It includes:
+\begin{itemize}
+    \item Currency, coins, and petty cash.
+    \item Checks received but not yet deposited.
+    \item Checking/savings accounts and money market accounts.
+    \item Short-term, highly liquid investments with maturities of \textbf{three months or less} at the time of purchase.
+    \item \textit{Example:} Amazon (2015) held \$15.89 billion.
+\end{itemize}
+
+\subsubsection{Marketable Securities}
+Investments in financial securities like stocks and bonds. While easily convertible to cash, they are considered less liquid than cash equivalents.
+\begin{itemize}
+    \item \textit{Example:} Amazon (2015) held \$3.92 billion.
+\end{itemize}
+
+\subsubsection{Inventories}
+Includes physical goods at various stages of production:
+\begin{itemize}
+    \item \textbf{Raw Materials:} Unprocessed materials.
+    \item \textbf{Work in Progress (WIP):} Partially finished goods.
+    \item \textbf{Finished Goods:} Products ready for sale.
+    \item \textit{Note:} Service industries may only have supplies, while retailers like Amazon hold massive finished goods (\$10.24 billion in 2015).
+\end{itemize}
+
+\subsubsection{Accounts Receivable}
+Money owed to the company by its clients/customers. This occurs when a company extends credit by delivering a product or service before receiving payment.
+\begin{itemize}
+    \item Represents a legal obligation from the client to the company.
+    \item \textit{Example:} Amazon (2015) had \$6.42 billion due from customers, vendors, and sellers.
+\end{itemize}
+
+\subsection{Non-Current Assets}
+Non-current assets are long-term investments and resources that are expected to provide value for more than one year.
+
+\subsubsection{Property, Plant, and Equipment (PP\&E)}
+The largest component of non-current assets for most physical businesses.
+\begin{itemize}
+    \item \textbf{Tangible Items:} Land, buildings, machinery, office furniture, vehicles, and fixtures.
+    \item \textbf{Technology:} Servers, networking equipment, and internal-use software.
+    \item \textit{Example:} Amazon (2015) held \$21.84 billion in PP\&E (including capital leases).
+\end{itemize}
+
+\subsubsection{Intangible Assets}
+Non-physical assets that contribute to a company's future value.
+\begin{itemize}
+    \item \textbf{Intellectual Property:} Patents, trademarks, and copyrights.
+    \item \textbf{Goodwill:} The value of a company's brand recognition and reputation (Amazon 2015: \$3.76 billion).
+\end{itemize}
+
+\subsection{Total Asset Summary: Case Study Amazon (2015)}
+The total value of assets must be funded by either liabilities or equity.
+\begin{itemize}
+    \item \textbf{Total Current Assets:} \$36.47 billion
+    \item \textbf{Total Non-Current Assets:} \$28.97 billion
+    \item \textbf{Total Assets:} \$65.44 billion
+\end{itemize}
+
+\noindent\rule{\linewidth}{1pt}
+
+\end{document}
