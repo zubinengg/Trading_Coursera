@@ -1,4 +1,4 @@
-\documentclass[14pt]{article}
+\documentclass[12pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath, amssymb, mathtools}
 \usepackage{tikz}
@@ -85,7 +85,202 @@ Financial ratios largely fall into five categories:
     \item \textbf{Liquidity Ratios:} Measure if a company has enough cash to meet its short-term financial obligations.
     \item \textbf{Valuation Ratios:} Compare the current market price of a company stock to certain items from the financial statements.
 \end{enumerate}
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
 
-Next time we will start looking at the various types of ratios within each category of financial ratios.
+\section{Profitability Ratios}
+In this section, we discuss common profitability ratios such as Return on Equity (ROE), Return on Assets (ROA), Gross Profit Margin, Operating Profit Margin, Net Profit Margin, and more. We use Amazon's financial statements as examples to compute these ratios.
+
+\subsection{Return on Equity (ROE)}
+ROE measures how well a company uses its shareholders' equity to generate profits. It is defined as:
+\[
+    ROE = \frac{\text{Net Income}}{\text{Average Shareholders' Equity}}
+\]
+The denominator is averaged over two consecutive years because shareholders' equity changes throughout the year. For example, Amazon's net income for 2015 was \$0.60 billion, and its average shareholders' equity was \$12.06 billion:
+\[
+    ROE_{2015} = \frac{0.60}{12.06} = 0.0497 \approx 4.97\%
+\]
+For every dollar of shareholders' equity, Amazon earned less than 50 cents in profit. ROEs for previous years were:
+\begin{itemize}
+    \item 2014: $-2.35\%$
+    \item 2013: $3.05\%$
+    \item 2012: $-0.49\%$
+\end{itemize}
+This shows Amazon's profitability has fluctuated over the years, with 2015 being the most profitable.
+
+\subsection{Return on Assets (ROA)}
+ROA measures how efficiently a company uses its assets to generate profits:
+\[
+    ROA = \frac{\text{Net Income}}{\text{Average Total Assets}}
+\]
+For Amazon in 2015:
+\[
+    ROA_{2015} = \frac{0.60}{59.97} = 0.0099 \approx 0.99\%
+\]
+For every dollar in assets, Amazon generated less than 1 cent in profit. Like ROE, ROA has varied significantly over the years.
+
+\subsection{Gross Profit Margin}
+Gross Profit Margin indicates how well a company manages its direct costs:
+\[
+    ext{Gross Margin} = \frac{\text{Gross Profit}}{\text{Revenue}} \times 100
+\]
+Gross profit is revenue minus cost of goods sold (COGS). For Amazon in 2015:
+\begin{itemize}
+    \item Revenue: \$107.01 billion
+    \item COGS: \$71.65 billion
+    \item Gross Profit: \$35.36 billion
+    \item Gross Margin: $33.04\%$
+\end{itemize}
+Amazon's gross margin has increased each year since 2012, as revenue has grown faster than COGS.
+
+\subsection{Operating Profit Margin}
+Operating Profit Margin (or EBIT Margin) is:
+\[
+    \text{Operating Margin} = \frac{\text{Operating Profit (EBIT)}}{\text{Revenue}} \times 100
+\]
+For Amazon in 2015:
+\begin{itemize}
+    \item EBIT: \$2.23 billion
+    \item Revenue: \$107.01 billion
+    \item Operating Margin: $2.09\%$
+\end{itemize}
+This was the highest in the last four years.
+
+\subsection{Pretax Margin}
+Pretax Margin is:
+\[
+    \text{Pretax Margin} = \frac{\text{Earnings Before Taxes}}{\text{Revenue}} \times 100
+\]
+For Amazon in 2015:
+\begin{itemize}
+    \item Earnings Before Taxes: \$1.57 billion
+    \item Revenue: \$107.01 billion
+    \item Pretax Margin: $1.47\%$
+\end{itemize}
+
+\subsection{Net Profit Margin}
+Net Profit Margin is:
+\[
+    \text{Net Margin} = \frac{\text{Net Income}}{\text{Revenue}} \times 100
+\]
+For Amazon in 2015:
+\begin{itemize}
+    \item Net Income: \$0.60 billion
+    \item Revenue: \$107.01 billion
+    \item Net Margin: $0.56\%$
+\end{itemize}
+Again, this was the highest in the last four years.
+
+\subsection{Summary}
+Amazon's profitability ratios show improvement in 2015 compared to previous years. However, while its gross margin is 33.04\%, its net margin is only 0.56\%. COGS accounts for two-thirds of revenue, and other expenses consume most of the remaining third. To assess whether these ratios are high or low, they should be compared to competitors.
+
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+
+\section{Activity Ratios}
+Activity ratios measure a company's ability to convert assets and liabilities into cash or sales. The faster a company can do this, the more efficiently it is run.
+
+\subsection{Total Asset Turnover}
+Measures how efficiently a company uses all its assets to generate revenues.
+\[
+    \text{Total Asset Turnover} = \frac{\text{Revenues}}{\text{Average Total Assets}}
+\]
+\textbf{Amazon 2015 Analysis:}
+\begin{itemize}
+    \item Revenues: \$107.01 billion
+    \item Average Total Assets: \$59.97 billion
+    \item \textbf{Ratio:} $1.78$
+\end{itemize}
+Every dollar in total assets generated \$1.78 in revenues. This ratio has worsened (it was over 2 in 2012), but average total assets have doubled in the last four years. This suggests Amazon is investing heavily for future growth, which reduces the ratio in the short term.
+
+\subsection{Fixed Asset Turnover}
+Measures how efficiently a company uses its fixed assets (PP\&E, goodwill, intangible assets) to generate revenues.
+\[
+    \text{Fixed Asset Turnover} = \frac{\text{Revenues}}{\text{Average Fixed Assets}}
+\]
+\textbf{Amazon 2015 Analysis:}
+\begin{itemize}
+    \item Average Fixed Assets: \$22.94 billion
+    \item \textbf{Ratio:} $4.66$
+\end{itemize}
+For every \$1 invested in fixed assets, Amazon generates \$4.66 in revenues. This has decreased over the last four years, but fixed assets have almost tripled, indicating investment for growth.
+
+\subsection{Working Capital Turnover}
+Measures the effectiveness of using working capital to generate revenues.
+\[
+    \text{Working Capital Turnover} = \frac{\text{Revenues}}{\text{Average Working Capital}}
+\]
+\textit{Note: Working Capital is calculated as Accounts Receivable + Inventory - Accounts Payable.}
+
+\textbf{Amazon 2015 Analysis:}
+\begin{itemize}
+    \item Average Working Capital: $-\$3.14$ billion
+    \item \textbf{Ratio:} $-34.08$
+\end{itemize}
+A negative turnover is difficult to interpret beyond noting that current liabilities exceed current assets. It has been consistently negative for Amazon.
+
+\subsection{Receivables Turnover and Days Sales Outstanding}
+Measures how soon sales are converted to cash.
+\[
+    \text{Receivables Turnover} = \frac{\text{Revenues}}{\text{Average Receivables}}
+\]
+\[
+    \text{Days Receivables Outstanding} = \frac{365}{\text{Receivables Turnover}}
+\]
+\textbf{Amazon 2015 Analysis:}
+\begin{itemize}
+    \item Average Receivables: \$6.02 billion
+    \item \textbf{Receivables Turnover:} $17.78$ (Converts revenues to cash $\approx$ 18 times a year)
+    \item \textbf{Days Receivables Outstanding:} $20.53$ days
+\end{itemize}
+This has increased marginally from 17.73 days in 2012. This could indicate customers facing financial difficulties or issues in the credit department's recovery processes.
+
+\subsection{Inventory Turnover and Days Inventory Held}
+Measures how soon inventory is sold.
+\[
+    \text{Inventory Turnover} = \frac{\text{COGS}}{\text{Average Inventory}}
+\]
+\[
+    \text{Days Inventory Held} = \frac{365}{\text{Inventory Turnover}}
+\]
+\textbf{Amazon 2015 Analysis:}
+\begin{itemize}
+    \item COGS: \$71.65 billion
+    \item Average Inventory: \$9.27 billion
+    \item \textbf{Inventory Turnover:} $7.73$
+    \item \textbf{Days Inventory Held:} $47.23$ days
+\end{itemize}
+Days inventory held has increased slightly. Inventory levels have doubled over the last four years. This might indicate a loss of sales or a strategic buildup for a large sale event.
+
+\subsection{Payables Turnover and Days Payable Outstanding}
+Measures how quickly a company pays its suppliers.
+\[
+    \text{Payables Turnover} = \frac{\text{Purchases}}{\text{Average Accounts Payable}}
+\]
+Where $\text{Purchases} = \Delta \text{Inventory} + \text{COGS}$.
+
+\textbf{Amazon 2015 Analysis:}
+\begin{itemize}
+    \item Purchases: \$1.94 B (Inventory Change) + \$71.65 B (COGS) = \$73.59 billion
+    \item Average Accounts Payable: \$18.43 billion
+    \item \textbf{Payables Turnover:} $3.99$
+    \item \textbf{Days Payable Outstanding:} $91.40$ days
+\end{itemize}
+Amazon pays suppliers roughly every 91 days. This has decreased marginally. It could mean Amazon is paying faster, possibly to take advantage of favorable credit terms (discounts).
+
+\subsection{Cash Conversion Cycle}
+Measures how quickly a company converts current assets to cash.
+\[
+    \text{CCC} = \text{Days Receivables} + \text{Days Inventory} - \text{Days Payables}
+\]
+\textbf{Amazon 2015 Analysis:}
+\[
+    \text{CCC} = 20.53 + 47.23 - 91.40 = -23.64 \text{ days}
+\]
+A negative cycle is excellent; it means Amazon collects cash from customers before it has to pay suppliers. However, the cycle has increased (become less negative) over the last few years, indicating a slight decline in efficiency.
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
 
 \end{document}
