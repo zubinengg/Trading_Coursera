@@ -1,0 +1,994 @@
+\documentclass[14pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, mathtools}
+\usepackage{tikz}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{parskip}
+\usepackage{tabularx}
+\usepackage[utf8]{inputenc}
+\usepackage{tgpagella}
+\usepackage[T1]{fontenc}
+\usepackage{array} % For better table features
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+
+\title{Introduction to Accounting: Lecture Notes}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\section{Definition of Accounting}
+\textbf{Accounting} is the formal collection, aggregation, analysis, and reporting of financial and non-financial data about a company to various end users.
+
+\begin{itemize}
+    \item \textbf{Mandated Reporting:} Public companies are required to release data periodically (typically quarterly and annually).
+    \item \textbf{End Users:} Data is provided to both internal parties (managers) and external parties (investors, creditors).
+\end{itemize}
+
+\section{The Three Types of Accounting}
+The field of accounting is broadly categorized into three distinct branches based on the target audience and purpose:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{@{}lll@{}}
+        \toprule
+        \textbf{Type} & \textbf{Primary Audience}   & \textbf{Purpose \& Characteristics}                   \\ \midrule
+        Financial     & External (Investors, Banks) & Assess performance, health, and credit risk.          \\
+        Managerial    & Internal (Management)       & Decision making: pricing, product mix, and budgeting. \\
+        Tax           & Tax Authorities (IRS)       & Compliance and estimation of tax liabilities.         \\ \bottomrule
+    \end{tabular}
+    \caption{Comparison of Accounting Branches}
+\end{table}
+
+\subsection{Financial Accounting}
+\begin{itemize}
+    \item \textbf{Primary Purpose:} To inform outsiders (equity investors, investment banks) for valuation and credit risk assessment.
+    \item \textbf{Secondary Purpose:} To monitor managers and ensure responsible use of company resources.
+    \item \textbf{Compliance:} Reports must follow specific rules and are audited by external parties for accuracy.
+\end{itemize}
+l
+\subsection{Managerial Accounting}
+\begin{itemize}
+    \item \textbf{Purpose:} Capacity planning, determining production volumes, and evaluating product profitability.
+    \item \textbf{Format:} No fixed formats; reports are not audited.
+\end{itemize}
+
+\section{Accrual Accounting}
+
+
+\subsection{Meaning of Accrual Basis of Accounting}
+
+Under the \textbf{accrual basis of accounting}:
+A key element of financial accounting is the concept of \textbf{Accruals}. Financial statements are prepared on an accrual basis rather than a cash basis.
+\begin{itemize}
+    \item Income is recognized when it is earned, irrespective of when cash is received.
+    \item Expenses are recognized when they are incurred, irrespective of when cash is paid.
+\end{itemize}
+
+Thus, transactions are recorded at the time when the economic activity occurs, not when cash flows take place.
+
+\subsection{Meaning of Cash Basis of Accounting}
+
+Under the \textbf{cash basis of accounting}:
+\begin{itemize}
+    \item Income is recorded only when cash is actually received.
+    \item Expenses are recorded only when cash is actually paid.
+\end{itemize}
+
+This method ignores outstanding receivables, payables, and other non-cash adjustments.
+
+\subsection{Why Accrual Basis is Preferred for Financial Statements}
+
+\subsubsection{True and Fair View}
+
+Accrual accounting follows the matching principle, whereby expenses are matched with the revenues earned during the same accounting period. This results in a true and fair view of financial performance.
+
+\subsubsection{Correct Measurement of Profit}
+
+Cash receipts and payments may relate to different accounting periods. Accrual accounting ensures that only the income and expenses pertaining to the current period are considered.
+
+\subsubsection{Better Assessment of Financial Position}
+
+Assets such as receivables and liabilities such as outstanding expenses are recognized, providing a realistic picture of the financial position of the entity.
+
+\subsubsection{Comparability and Consistency}
+
+Financial statements prepared on an accrual basis are comparable across different periods and entities, facilitating better decision-making by users.
+
+\subsection{Key Principles}
+Transactions are recognized when the \textit{economic event} occurs, not necessarily when cash changes hands.
+\begin{enumerate}
+    \item \textbf{Revenue Recognition:} Revenue is reported when earned (delivery of product/service), measurable, and collection is reasonably certain.
+    \item \textbf{Matching Principle:} Expenses related to revenues must be recognized in the same period as the revenue itself.
+\end{enumerate}
+
+\subsection{The Fundamental Difference}
+The distinction between earnings and cash flow is often summarized by the adage:
+\begin{equation*}
+    \text{Cash Flow} = \text{Fact} \quad \longleftrightarrow \quad \text{Earnings} = \text{Opinion}
+\end{equation*}
+
+\subsection{Pros and Cons of Accrual Accounting}
+\begin{itemize}
+    \item \textbf{Advantages:} Provides timelier, decision-relevant information by reflecting economic reality.
+    \item \textbf{Disadvantages:} Relies on managerial judgment and estimates, making it potentially less reliable than raw cash flow data.
+\end{itemize}
+
+
+\subsection{Summary of Financial Statements}
+Accrual accounting directly results in the creation of two primary statements:
+\begin{itemize}
+    \item \textbf{Income Statement:} Also known as the Profit and Loss (P\&L) statement.
+    \item \textbf{Balance Sheet:} Reflects the net financial position of the company.
+\end{itemize}
+
+\noindent\rule{\linewidth}{1pt}
+
+\section{Introduction to the Balance Sheet}
+The \textbf{Balance Sheet} captures the financial position of a company as of a \textit{particular date} (e.g., the end of a quarter or the end of a fiscal year). It acts as a snapshot in time, showing what a company owns and what it owes.
+
+\subsection{The Accounting Equation}
+The balance sheet derives its name from the fact that it must always balance. This relationship is expressed through the fundamental accounting equation:
+
+\begin{equation}
+    \text{Assets} = \text{Liabilities} + \text{Shareholders' Equity}
+\end{equation}
+
+\begin{itemize}
+    \item \textbf{Assets:} Represent how the company \textit{uses} its resources.
+    \item \textbf{Liabilities \& Equity:} Represent \textit{where} the company gets its resources from.
+\end{itemize}
+
+\subsection{Components of the Balance Sheet}
+
+\subsubsection{Assets}
+Assets are resources owned by the company used to generate future economic benefits (higher cash inflows or lower cash outflows).
+\begin{itemize}
+    \item \textbf{Classification:}
+          \begin{itemize}
+              \item \textbf{Current Assets:} Expected to be converted to cash, sold, or consumed within \textbf{one year}. (Examples: Cash, equivalents, inventory).
+              \item \textbf{Non-current Assets:} Expected to be realized after one year. (Examples: Property, Plant, and Equipment [PP\&E], Patents, Trademarks).
+          \end{itemize}
+\end{itemize}
+
+\subsubsection{Liabilities}
+Liabilities represent the company’s economic obligations to outsiders.
+\begin{itemize}
+    \item \textbf{Classification:}
+          \begin{itemize}
+              \item \textbf{Current Liabilities:} Obligations expected to be paid within \textbf{one year}. (Examples: Accounts payable, short-term borrowing).
+              \item \textbf{Non-current Liabilities:} Obligations expected to be settled after one year. (Example: Long-term debt).
+          \end{itemize}
+\end{itemize}
+
+\subsubsection{Shareholders' Equity}
+This represents the owners' claims on the total assets of the company.
+\begin{itemize}
+    \item \textbf{Contributed Capital:} Investments made by the owners.
+    \item \textbf{Retained Earnings:} The aggregate undistributed profits of the company over time.
+\end{itemize}
+
+\subsection{Key Characteristics}
+\begin{itemize}
+    \item \textbf{Historical Cost:} Items are recorded at their original purchase price. They are generally \textbf{not} updated to reflect current market values.
+    \item \textbf{Presentation:}
+          \begin{itemize}
+              \item Typically, Assets are on the left (or top), while Liabilities and Equity are on the right (or bottom).
+              \item Formats may vary internationally based on local accounting standards.
+          \end{itemize}
+\end{itemize}
+
+\noindent\rule{\linewidth}{1pt}
+
+
+\section{Overview of Assets}
+Assets represent how a company uses its resources to generate future economic benefits. On the balance sheet, assets are categorized based on their liquidity and expected lifespan.
+
+\subsection{Current Assets}
+Current assets are resources expected to be sold, converted to cash, or consumed within \textbf{one year}.
+
+\subsubsection{Cash and Cash Equivalents}
+This is the most liquid category. It includes:
+\begin{itemize}
+    \item Currency, coins, and petty cash.
+    \item Checks received but not yet deposited.
+    \item Checking/savings accounts and money market accounts.
+    \item Short-term, highly liquid investments with maturities of \textbf{three months or less} at the time of purchase.
+    \item \textit{Example:} Amazon (2015) held \$15.89 billion.
+\end{itemize}
+
+\subsubsection{Marketable Securities}
+Investments in financial securities like stocks and bonds. While easily convertible to cash, they are considered less liquid than cash equivalents.
+\begin{itemize}
+    \item \textit{Example:} Amazon (2015) held \$3.92 billion.
+\end{itemize}
+
+\subsubsection{Inventories}
+Includes physical goods at various stages of production:
+\begin{itemize}
+    \item \textbf{Raw Materials:} Unprocessed materials.
+    \item \textbf{Work in Progress (WIP):} Partially finished goods.
+    \item \textbf{Finished Goods:} Products ready for sale.
+    \item \textit{Note:} Service industries may only have supplies, while retailers like Amazon hold massive finished goods (\$10.24 billion in 2015).
+\end{itemize}
+
+\subsubsection{Accounts Receivable}
+Money owed to the company by its clients/customers. This occurs when a company extends credit by delivering a product or service before receiving payment.
+\begin{itemize}
+    \item Represents a legal obligation from the client to the company.
+    \item \textit{Example:} Amazon (2015) had \$6.42 billion due from customers, vendors, and sellers.
+\end{itemize}
+
+\subsection{Non-Current Assets}
+Non-current assets are long-term investments and resources that are expected to provide value for more than one year.
+
+\subsubsection{Property, Plant, and Equipment (PP\&E)}
+The largest component of non-current assets for most physical businesses.
+\begin{itemize}
+    \item \textbf{Meaning of "Plant":} Refers to industrial facilities (e.g., factories, warehouses).
+    \item \textbf{Tangible Items:} Land, buildings, machinery, office furniture, vehicles, and fixtures.
+    \item \textbf{Technology:} Servers, networking equipment, and internal-use software.
+    \item \textit{Example:} Amazon (2015) held \$21.84 billion in PP\&E (including capital leases).
+\end{itemize}
+
+\subsubsection{Intangible Assets}
+Non-physical assets that contribute to a company's future value.
+\begin{itemize}
+    \item \textbf{Intellectual Property:} Patents, trademarks, and copyrights.
+    \item \textbf{Goodwill:} The value of a company's brand recognition and reputation (Amazon 2015: \$3.76 billion).
+          \begin{itemize}
+              \item \textit{Calculation:} Recorded only during an acquisition.
+              \item $\text{Goodwill} = \text{Purchase Price} - (\text{Fair Value of Assets} - \text{Fair Value of Liabilities})$
+          \end{itemize}
+\end{itemize}
+
+\subsection{Total Asset Summary: Case Study Amazon (2015)}
+The total value of assets must be funded by either liabilities or equity.
+\begin{itemize}
+    \item \textbf{Total Current Assets:} \$36.47 billion
+    \item \textbf{Total Non-Current Assets:} \$28.97 billion
+    \item \textbf{Total Assets:} \$65.44 billion
+\end{itemize}
+
+\noindent\rule{\linewidth}{1pt}
+
+\section{Overview of Liabilities}
+Liabilities represent where the company gets some of its resources from, specifically the obligations to outsiders. Like assets, they are classified based on when they are due.
+
+\subsection{Current Liabilities}
+Obligations that are due within the next \textbf{one year}.
+
+\subsubsection{Accounts Payable}
+The amount the company owes its vendors and suppliers for products and services that have already been provided or delivered on credit.
+\begin{itemize}
+    \item \textit{Example:} Amazon (2015) owed \$20.40 billion.
+\end{itemize}
+
+\subsubsection{Accrued Expenses}
+Expenses the company has incurred but has not yet received an invoice for (e.g., wages, interest, utilities).
+\begin{itemize}
+    \item \textit{Example:} Amazon (2015) had \$10.38 billion (related to unredeemed gift cards, leases, and asset retirement obligations).
+\end{itemize}
+
+\subsubsection{Unearned Revenue}
+Money paid by customers in advance for products or services. It remains a liability until the company delivers the promised product/service.
+\begin{itemize}
+    \item \textit{Example:} Amazon (2015) had \$3.12 billion (primarily Prime memberships and AWS prepayments).
+\end{itemize}
+
+\textbf{Total Current Liabilities (Amazon 2015):} \$33.90 billion.
+
+\subsection{Non-Current Liabilities}
+Obligations due to be paid \textbf{after one year}.
+
+\subsubsection{Long-Term Debt}
+Includes loans and bonds.
+\begin{itemize}
+    \item \textit{Example:} Amazon (2015) had \$8.23 billion.
+\end{itemize}
+
+\subsubsection{Other Long-Term Liabilities}
+Includes long-term lease obligations, tax contingencies, and deferred tax liabilities.
+\begin{itemize}
+    \item \textit{Example:} Amazon (2015) had \$9.93 billion.
+\end{itemize}
+
+\textbf{Total Non-Current Liabilities (Amazon 2015):} \$18.16 billion.
+
+\subsection{Total Liability Summary: Case Study Amazon (2015)}
+\begin{itemize}
+    \item \textbf{Total Current Liabilities:} \$33.90 billion
+    \item \textbf{Total Non-Current Liabilities:} \$18.16 billion
+    \item \textbf{Total Liabilities:} \$52.06 billion
+\end{itemize}
+
+Comparing this to Total Assets (\$65.44 billion), the remaining balance (\$13.37 billion) represents the resources provided by Shareholders' Equity.
+
+\noindent\rule{\linewidth}{1pt}
+%%-----------------------------------------------------------------
+
+\section{Overview of Shareholders' Equity}
+Shareholders' Equity (also referred to as Net Worth) represents the total equity interest of all shareholders. It is the residual value of assets after deducting liabilities.
+
+\subsection{Components of Shareholders' Equity}
+
+\subsubsection{Common Stock}
+Represents the primary ownership of the company.
+\begin{itemize}
+    \item \textbf{Voting Rights:} Shareholders can select the Board of Directors.
+    \item \textbf{Par Value (Capital Stock):} A nominal value assigned to each share (e.g., \$0.01). This represents the legal capital.
+    \item \textbf{Accounting Split:} When Common Stock is issued, the proceeds are split between "Capital Stock" (par value) and "Additional Paid-in Capital" (excess over par).
+    \item \textit{Example:} Amazon (2015) had 500 million shares outstanding at \$0.01 par value (\$5 million total).
+\end{itemize}
+
+\subsubsection{Additional Paid-in Capital}
+The amount of capital the company raises above the par value (Capital Stock) of the shares when they are sold to the public.
+\begin{itemize}
+    \item \textit{Example:} Amazon (2015) had \$13.39 billion.
+\end{itemize}
+
+\subsubsection{Treasury Stock}
+Common stock that the company has bought back from shareholders or authorized but never sold.
+\begin{itemize}
+    \item Recorded at cost and deducted from total equity (contra-equity).
+    \item These shares have no voting rights and receive no dividends.
+    \item \textit{Example:} Amazon (2015) held \$1.84 billion.
+\end{itemize}
+
+\subsubsection{Preferred Stock}
+A class of stock that has priority over common stock regarding dividends.
+\begin{itemize}
+    \item \textbf{Priority:} Dividends must be paid to preferred stockholders before common stockholders.
+    \item \textbf{No Voting Rights:} Preferred stockholders generally do not vote.
+    \item \textit{Example:} Amazon (2015) had not issued any preferred stock (\$0).
+\end{itemize}
+
+\subsubsection{Retained Earnings}
+The aggregate of undistributed profits across all years.
+\begin{itemize}
+    \item Represents profits not paid out as dividends but reinvested in the company.
+    \item \textit{Example:} Amazon (2015) had \$2.55 billion.
+\end{itemize}
+
+\subsubsection{Other Accumulated Comprehensive Loss}
+Includes unrealized gains and losses from investments in cash equivalents and marketable securities.
+\begin{itemize}
+    \item \textit{Example:} Amazon (2015) had a loss of \$0.72 billion.
+\end{itemize}
+
+\subsection{Total Equity Summary: Case Study Amazon (2015)}
+Adding the components together yields the total shareholders' equity.
+\begin{itemize}
+    \item \textbf{Total Shareholders' Equity:} \$13.38 billion.
+\end{itemize}
+
+\subsection{Balance Sheet Equation Check}
+\begin{equation*}
+    \text{Liabilities} (\$52.06\,\text{B}) + \text{Equity} (\$13.38\,\text{B}) = \text{Total Assets} (\$65.44\,\text{B})
+\end{equation*}
+This confirms that Amazon's uses of resources (Assets) exactly match its sources of resources (Liabilities + Equity).
+
+\noindent\rule{\linewidth}{1pt}
+
+\section{Introduction to the Income Statement}
+The \textbf{Income Statement} (also known as the Profit and Loss statement or P\&L) reports a company's operating results for a specific period. It primarily details revenues and costs.
+\begin{itemize}
+    \item \textbf{Amazon Terminology:} Referred to as "Consolidated Statements of Operations".
+    \item \textbf{Purpose:} Tells analysts and investors how profitable a company is.
+    \item \textbf{Basic Formula:}
+          \begin{equation*}
+              \text{Net Income (Profit/Loss)} = \text{Revenues} - \text{Expenses}
+          \end{equation*}
+\end{itemize}
+
+\subsection{Expensing vs. Capitalizing}
+Assets and expenses both require the use of company resources, but they are treated differently based on \textit{when} the benefits are realized.
+
+\subsubsection{Expensing}
+If the benefits of the resource use result in the \textbf{same period} as the use itself:
+\begin{itemize}
+    \item The use is categorized as an \textbf{Expense}.
+    \item The entire amount appears on that period's Income Statement.
+\end{itemize}
+
+\subsubsection{Capitalizing}
+If the benefits are expected to accrue in \textbf{future time periods}:
+\begin{itemize}
+    \item The use is \textbf{Capitalized}.
+    \item The amount is shown as an \textbf{Asset} on the Balance Sheet (e.g., PP\&E, purchased patents).
+\end{itemize}
+
+\subsection{Converting Capitalized Costs to Expenses}
+Capitalized expenditures are eventually charged as expenses to the Income Statement through two processes:
+\begin{enumerate}
+    \item \textbf{Amortization:} The process of allocating an asset's value to future periods when its benefits are earned (typically over the asset's useful life). It is a periodic charge.
+          \begin{itemize}
+              \item \textit{Depreciation:} The specific terminology used for amortizing Property, Plant, and Equipment (PP\&E).
+          \end{itemize}
+    \item \textbf{Impairment:} A write-down of an asset's value to its current fair market value due to substantial value destruction (by market forces or nature). It is a one-time event.
+\end{enumerate}
+
+\subsection{Revenues (Sales)}
+Often called the "Top Line" because it is the first item on the Income Statement.
+\begin{itemize}
+    \item Includes income only from \textbf{primary lines of business} (excludes investment income).
+    \item \textbf{"Net" Sales:} Revenues minus returns and discounts.
+    \item \textbf{Amazon (2015) Case Study:}
+          \begin{itemize}
+              \item Net Product Sales (own inventory): \$76.27 billion.
+              \item Net Service Sales (3rd party commissions, AWS): \$27.74 billion.
+              \item \textbf{Total Net Sales:} \$107.01 billion.
+          \end{itemize}
+\end{itemize}
+
+\noindent\rule{\linewidth}{1pt}
+%%-----------------------------------------------------------------
+
+
+\section{Common Expenses and Profit Measures}
+This section explores the common expenses incurred by a company to generate revenues, specifically Cost of Goods Sold (COGS) and Operating Expenses. It also details intermediate profit measures calculated on the income statement.
+
+\subsection{Cost of Goods Sold (COGS)}
+COGS refers to the direct costs a company incurs in generating a warehouse full of goods or products ready to be sold.
+\begin{itemize}
+    \item \textbf{Includes:} Raw material costs and direct labor costs involved in the production of the final product.
+    \item \textbf{Excludes:} Distribution costs and sales force costs.
+\end{itemize}
+
+\subsubsection{Amazon 2015 Case Study}
+Amazon reports COGS as "Cost of Sales".
+\begin{itemize}
+    \item \textbf{Amount:} \$71.65 billion.
+    \item \textbf{Composition:} Includes the purchase price of consumer products, digital media content, packaging supplies, sortation and delivery centers, related equipment costs, and inbound/outbound shipping costs.
+    \item \textbf{Summary:} It includes all costs Amazon incurs in delivering its products to customers.
+\end{itemize}
+
+\subsection{Gross Profit}
+Gross profit is the first profit measure, calculated as the difference between Revenues and COGS.
+\begin{equation*}
+    \text{Gross Profit} = \text{Net Sales} - \text{COGS}
+\end{equation*}
+It indicates how much a company makes in profits after deducting costs directly associated with producing and selling its products or providing services.
+
+\textbf{Amazon 2015 Calculation:}
+\begin{itemize}
+    \item Net Sales: \$107.01 billion
+    \item COGS: \$71.65 billion
+    \item \textbf{Gross Profit:} \$35.36 billion
+\end{itemize}
+
+\subsection{Operating Expenses}
+Operating expenses are deducted from Gross Profit. The major components include SG\&A and R\&D.
+
+\subsubsection{Selling, General, and Administrative (SG\&A)}
+SG\&A typically includes non-production costs.
+\begin{itemize}
+    \item \textbf{Selling Expenses:} Advertising, rent, sales force salaries.
+    \item \textbf{General Support:} Executive salaries, legal fees, and other corporate costs.
+    \item \textbf{Depreciation and Amortization:} Often included in SG\&A (discussed below).
+\end{itemize}
+
+\paragraph{Depreciation and Amortization (Concept)}
+Depreciation and Amortization occur when the cost of acquiring an asset is \textit{capitalized} rather than expensed immediately.
+\begin{itemize}
+    \item \textbf{Capitalization:} Benefits of the asset are realized over a number of years (concepts of "Useful Life").
+    \item \textbf{Non-Cash Expense:} Unlike other expenses, this is not an amount paid out to someone in the current period.
+    \item \textbf{Depreciation:} Refers to expense related to PP\&E (Property, Plant, and Equipment) and other fixed assets.
+    \item \textbf{Amortization:} Refers to expense related to intangible assets (goodwill, trademarks, brand names).
+\end{itemize}
+
+\subsubsection{Amazon's SG\&A Breakdown (2015)}
+Amazon's total SG\&A for 2015 was \$20.41 billion. The income statement includes:
+\begin{enumerate}
+    \item \textbf{Fulfillment (\$13.41 billion):} Costs incurred in operating and staffing fulfillment and customer service centers, as well as payment processing centers.
+    \item \textbf{Marketing (\$5.25 billion):} Costs incurred in marketing and selling products and services.
+    \item \textbf{General and Administrative (\$1.75 billion):} Payroll, professional/litigation expenses, other corporate costs, and depreciation expenses.
+\end{enumerate}
+\textit{Note:} Amazon does not state Depreciation \& Amortization separately on the Income Statement; it is implicitly captured in SG\&A. The Statement of Cash Flows reports D\&A expenses of \$6.28 billion.
+
+\subsubsection{Technology and Content (R\&D)}
+Companies incur costs to develop new products. Amazon reports this as "Technology and Content".
+\begin{itemize}
+    \item \textbf{Technology Costs:} Payroll/costs for employees involved in application, production, maintenance, operation, platform development, and infrastructure.
+    \item \textbf{Content Costs:} Payroll/costs for category expansion, editorial content, buying, and merchandising selection.
+    \item \textbf{Total (2015):} \$12.54 billion.
+\end{itemize}
+
+\subsection{Operating Profit (EBIT)}
+Operating Profit, strictly referred to as Earnings Before Interest and Taxes (EBIT), represents profits before any interest and taxes are paid.
+
+\begin{equation*}
+    \text{Operating Profit} = \text{Gross Profit} - \text{Total Operating Expenses}
+\end{equation*}
+
+\textbf{Amazon 2015 Calculation:}
+\begin{enumerate}
+    \item \textbf{Total Operating Expenses:}
+          \begin{itemize}
+              \item SG\&A: \$20.41 billion
+              \item Technology \& Content: \$12.54 billion
+              \item Other Operating Expenses: \$0.17 billion
+              \item \textbf{Total:} \$33.12 billion
+          \end{itemize}
+    \item \textbf{Operating Profit:} \$35.36 B (Gross Profit) - \$33.12 B (Expenses) = \textbf{\$2.24 billion}.
+\end{enumerate}
+
+\subsection{EBITDA}
+EBITDA stands for Earnings Before Interest, Taxes, Depreciation, and Amortization. It is calculated by adding D\&A back to EBIT.
+\begin{equation*}
+    \text{EBITDA} = \text{EBIT} + \text{Depreciation \& Amortization}
+\end{equation*}
+This is a relevant number because D\&A is a non-cash expense, so EBITDA is often a better proxy for the profits actually made by the company.
+
+\textbf{Amazon 2015 Calculation:}
+\begin{itemize}
+    \item EBIT: \$2.24 billion
+    \item D\&A: \$6.24 billion (Note: Slight variance from Cash Flow statement figure of 6.28 in lecture calculation).
+    \item \textbf{EBITDA:} \$8.48 billion
+\end{itemize}
+
+\noindent\rule{\linewidth}{1pt}
+%%-----------------------------------------------------------------
+
+
+\section{Completing the Income Statement and Other Profit Measures}
+This section covers the remaining items on the income statement following Operating Profit (EBIT) and EBITDA, including interest, taxes, and earnings per share. It also links the income statement to the balance sheet.
+
+\subsection{Earnings Before Tax (EBT)}
+To move from EBIT to Earnings Before Tax (EBT), we must account for interest income and expenses.
+\begin{itemize}
+    \item \textbf{Interest Income:} Revenue earned from investing capital in short-to-medium term investments. Added to EBIT.
+    \item \textbf{Interest Expense:} Costs paid on borrowed money. Deducted from EBIT.
+    \item \textbf{Other Non-Operating Expenses:} Any other costs not related to core operations. Deducted from EBIT.
+\end{itemize}
+
+\textbf{Amazon 2015 Calculation:}
+\begin{equation*}
+    \text{EBT} = \text{EBIT} + \text{Interest Income} - \text{Interest Expense} - \text{Other Expenses}
+\end{equation*}
+\begin{itemize}
+    \item EBIT: \$2.24 billion
+    \item Interest Income: \$0.05 billion
+    \item Interest Expense: \$0.46 billion
+    \item Other Non-Operating Expenses: \$0.26 billion
+    \item \textbf{EBT:} \$2.24 + 0.05 - 0.46 - 0.26 = \textbf{\$1.57 billion}
+\end{itemize}
+
+\subsection{Unusual or Infrequent Items}
+Previously recognized as "extraordinary items," these are significant events that are unusual or infrequent (e.g., loss of inventory due to a fire).
+\begin{itemize}
+    \item \textbf{Reporting:} No longer reported as a separate "extraordinary item" category but must still be disclosed as revenue or expense.
+    \item \textbf{Amazon (2015):} No such items were reported.
+\end{itemize}
+
+\subsection{Net Income (The Bottom Line)}
+Net Income represents the total profits of the company net of all expenses, including taxes. It is the last line of the income statement.
+
+\subsubsection{Corporate Taxes}
+Taxes are paid to the government based on the company's tax rate.
+\begin{itemize}
+    \item \textbf{Amazon (2015):} Total tax obligation was \$0.95 billion.
+\end{itemize}
+
+\subsubsection{Net Income Calculation}
+\begin{equation*}
+    \text{Net Income} = \text{EBT} - \text{Taxes} \pm \text{Net Equity Return}
+\end{equation*}
+\textbf{Amazon (2015):}
+\begin{itemize}
+    \item EBT: \$1.57 billion
+    \item Taxes: \$0.95 billion
+    \item Net Equity Return (Investment Activity): \$0.02 billion (subtracted in this context for net result)
+    \item \textbf{Net Income:} \$0.60 billion
+\end{itemize}
+
+\subsection{Earnings Per Share (EPS)}
+EPS indicates how much profit the company made for every share of stock.
+
+\subsubsection{Basic EPS}
+Based on the number of shares actually sold / outstanding.
+\begin{equation*}
+    \text{Basic EPS} = \frac{\text{Net Income}}{\text{Shares Outstanding}}
+\end{equation*}
+\textbf{Amazon (2015):}
+\begin{itemize}
+    \item Net Income: \$0.60 billion
+    \item Shares Outstanding: 467 million
+    \item \textbf{Basic EPS:} \$1.28 per share
+\end{itemize}
+
+\subsubsection{Diluted EPS}
+Accounts for the potential impact of employee stock options and awards being converted into shares.
+\begin{itemize}
+    \item \textbf{Diluted Shares:} Includes actual shares + potential shares from options.
+    \item \textbf{Amazon (2015):} Used 477 million shares (implies 10 million potential shares from awards).
+    \item \textbf{Diluted EPS:} \$0.60 billion / 477 million = \textbf{\$1.25 per share}.
+\end{itemize}
+\textit{Note:} Investors prefer a small difference between Basic and Diluted EPS, as a large difference suggests potential future dilution of ownership.
+
+\subsection{Link to the Balance Sheet: Retained Earnings}
+Net Income belongs to the shareholders ("residual claimants"). However, companies often retain earnings for future investment rather than paying them out as dividends (e.g., Amazon).
+
+\begin{equation*}
+    \text{Retained Earnings} = \text{Net Income} - \text{Dividends Paid}
+\end{equation*}
+
+\begin{itemize}
+    \item \textbf{Accumulation:} Retained earnings are added to the Shareholders' Equity section of the Balance Sheet every year.
+    \item As long as a company is profitable and retains earnings, Shareholders' Equity grows over time.
+\end{itemize}
+
+\noindent\rule{\linewidth}{1pt}
+%%-----------------------------------------------------------------
+
+
+
+\section{Introduction to Statement of Cash Flows}
+The Statement of Cash Flows (SCF) tracks the changes in a company's cash balance from one year to the next and explains \textit{why} the balance changed.
+
+\subsection{Why is it Needed?}
+The Income Statement tracks transactions on an \textbf{accrual basis}, meaning it records economic events regardless of when cash is exchanged.
+\begin{itemize}
+    \item Profits (Net Income) do not equal Cash. A company cannot pay bills with "Net Income" if it doesn't represent actual cash available.
+    \item The SCF reports the different channels contributing to cash changes, helping assess a company's ability to pay suppliers, employees, loans, and dividends.
+\end{itemize}
+
+\textbf{Amazon Case Study (2014-2015):}
+\begin{itemize}
+    \item Cash \& Equivalents (2014): \$14.58 billion.
+    \item Cash \& Equivalents (2015): \$15.89 billion.
+    \item \textbf{Change:} Increase of \$1.31 billion. The SCF explains the source of this increase.
+\end{itemize}
+
+\subsection{Three Main Categories of Cash Flows}
+The SCF separates changes in cash into three buckets:
+\begin{enumerate}
+    \item \textbf{Cash Flows from Operating Activities:} Related to the company's operations, current assets, and current liabilities.
+    \item \textbf{Cash Flows from Investing Activities:} Related to the company's \textbf{non-current assets} (e.g., buying PP\&E).
+    \item \textbf{Cash Flows from Financing Activities:} Related to the company's \textbf{non-current liabilities} and \textbf{shareholders' equity} (e.g., repaying loans, issuing stock).
+\end{enumerate}
+
+\subsection{Calculating Cash Flows from Operating Activities}
+There are two primary methods to determine operating cash flows:
+
+\subsubsection{Direct Method}
+\begin{itemize}
+    \item \textbf{Mechanism:} Directly reports major classes of gross cash receipts and payments.
+    \item \textbf{Pros/Cons:} Simple to understand but very costly to maintain detailed cash records.
+\end{itemize}
+
+\subsubsection{Indirect Method}
+\begin{itemize}
+    \item \textbf{Mechanism:} starts with \textbf{Net Income} and makes adjustments to convert it from accrual basis to cash basis.
+    \item \textbf{Reasoning:} Net income includes non-cash items.
+    \item \textbf{Types of Adjustments:}
+          \begin{enumerate}
+              \item \textbf{Non-cash items on Income Statement:} Adjust for expenses like Depreciation \& Amortization (deducted for profit but no cash left the company).
+              \item \textbf{Cash items not on Income Statement:} Adjust for cash paid for inventory not yet sold (cash left, but no expense recognized yet).
+          \end{enumerate}
+    \item \textbf{Usage:} Most common method used in annual reports (including this course).
+\end{itemize}
+
+\noindent\rule{\linewidth}{1pt}
+%%-----------------------------------------------------------------
+
+
+\section{Adjustments to Operating Cash Flows: Amazon Case Study}
+
+We continue our examination of the Statement of Cash Flows by detailing the adjustments required to compute cash flows from operating activities. Using Amazon's 2015 financial data, we start with the \textbf{Net Income of \$0.60 billion} and make specific adjustments.
+
+\subsection{Adjustments for Non-Cash and Non-Operating Items}
+The first set of adjustments eliminates the impact of non-cash expenditures and items related to investing or financing activities. Since these expenses were deducted to arrive at Net Income but did not involve actual cash outflows, they must be added back.
+
+\begin{itemize}
+    \item \textbf{Depreciation and Amortization (+\$6.28 billion):} These are non-cash expenses. While they reduce profits, no cash is paid or owed to anyone. Thus, Net Income understates the cash on hand, and we add this amount back.
+    \item \textbf{Stock-Based Compensation (+\$2.12 billion):} Part of employee salaries was paid in stock rather than cash. Although recognized as an expense, it did not reduce the cash balance, so it is added back.
+    \item \textbf{Other Non-Cash Operating Expenses (+\$0.16 billion):} Operating expenses not paid in cash; added back.
+    \item \textbf{Non-Operating Expenses, Net (+\$0.25 billion):} Amazon incurred expenses unrelated to operations (net of income). These are removed from the operating section (added back) and will be handled in investing/financing sections.
+    \item \textbf{Deferred Income Taxes (+\$0.08 billion):} Taxes recognized as an expense but not yet paid. Since the cash has not left the company, this amount is added back.
+    \item \textbf{Other Adjustments:}
+          \begin{itemize}
+              \item Loss on sale of marketable securities: +\$0.01 billion.
+              \item Excess tax benefits from stock-based compensation: -\$0.12 billion.
+          \end{itemize}
+\end{itemize}
+
+\textbf{Total Non-Cash and Non-Operating Adjustments:} \$8.78 billion.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{@{}lr@{}}
+        \toprule
+        \textbf{Non-operations-related adjustments to Amazon's net income} & \textbf{\$ Billion} \\ \midrule
+        Net Income                                                         & 0.60                \\
+        Depreciation and amortization                                      & 6.28                \\
+        Stock-based compensation                                           & 2.12                \\
+        Net operating expenses                                             & 0.16                \\
+        Non operating expenses                                             & 0.25                \\
+        Deferred taxes                                                     & 0.08                \\
+        Losses during the sale of marketable securities                    & 0.01                \\
+        Excess tax benefits from stock-based compensation                  & -0.12               \\ \midrule
+        \textbf{Total}                                                     & \textbf{8.78}       \\ \bottomrule
+    \end{tabular}
+    \caption{Non-operations-related adjustments to Amazon's net income}
+\end{table}
+
+\subsection{Adjustments for Changes in Operations-Related Working Capital}
+The next set of adjustments accounts for changes in current assets and current liabilities related to operations.
+
+\subsubsection{Assets: Inverse Relationship}
+Increases in current assets generally mean cash is tied up, while decreases mean cash is released.
+
+\begin{itemize}
+    \item \textbf{Inventories (Increase of \$2.19 billion) $\rightarrow$ Deduct \$2.19 billion:}
+          Amazon spent cash purchasing raw materials and supplies (inventory). This cash outflow is not on the income statement until the items are sold. Since the inventory balance increased, more cash is tied up, so we subtract this amount.
+    \item \textbf{Accounts Receivable (Increase of \$1.76 billion) $\rightarrow$ Deduct \$1.76 billion:}
+          An increase denotes sales made where cash has not yet been received. Revenue and Net Income overstate the actual cash collected, so the increase is subtracted.
+\end{itemize}
+
+\subsubsection{Liabilities: Direct Relationship}
+Increases in current liabilities generally mean cash is preserved (borrowed), while decreases mean cash is paid out.
+
+\begin{itemize}
+    \item \textbf{Accounts Payable (Increase) $\rightarrow$ Add \$4.29 billion:}
+          An increase means the company has received goods/services but not yet paid for them. The cost was subtracted from Net Income, but since cash wasn't paid, we add the amount back.
+    \item \textbf{Accrued Expenses (Increase of \$0.91 billion) $\rightarrow$ Add \$0.91 billion:}
+          Expenses deducted from revenues but still owed. Added back.
+    \item \textbf{Unearned Revenue (Increase of \$7.40 billion) $\rightarrow$ Add \$7.40 billion:}
+          Cash received in advance for products/services (e.g., Prime memberships) not yet delivered. This is "extra" cash not yet in Net Income.
+    \item \textbf{Amortization of Previously Unearned Revenue $\rightarrow$ Deduct \$6.11 billion:}
+          Revenue recognized this year for cash received in prior years. It increases Net Income but brings in no new cash, so it is subtracted.
+\end{itemize}
+
+\textbf{Total Working Capital Adjustments:} +\$2.54 billion.
+
+\subsection{Final Calculation: Net Cash Provided by Operating Activities}
+Combining the net income with the two categories of adjustments:
+
+\begin{equation*}
+    \begin{aligned}
+          & \textbf{Net Income}                         & \mathbf{\$0.60 \text{ billion}}  \\
+        + & \text{Non-Cash/Non-Operating Adjustments}   & + \$8.78 \text{ billion}         \\
+        + & \text{Working Capital Adjustments}          & + \$2.54 \text{ billion}         \\
+        \hline
+        = & \textbf{Net Cash from Operating Activities} & \mathbf{\$11.92 \text{ billion}}
+    \end{aligned}
+\end{equation*}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{@{}lr@{}}
+        \toprule
+        \textbf{Operations-related current asset and current liabilities}    & \textbf{\$ Billion} \\ \midrule
+        Increase in inventories                                              & -2.19               \\
+        Increase in accounts receivable                                      & -1.76               \\
+        Increase in accounts payable                                         & 4.29                \\
+        Increase in accrued expenses                                         & 0.91                \\
+        Increase in unearned revenues                                        & 7.40                \\
+        Amortization of previously unearned revenues                         & -6.11               \\ \midrule
+        \textbf{Total}                                                       & \textbf{2.54}       \\ \midrule
+        Net income                                                           & 0.60                \\
+        Adjustments for non-cash expenses and non-operating related expenses & 8.78                \\ \midrule
+        \textbf{Net cash flow from operating activities}                     & \textbf{11.92}      \\ \bottomrule
+    \end{tabular}
+    \caption{Calculation of Net Cash Flow from Operating Activities}
+\end{table}
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+
+\section{Cash Flows from Investing and Financing Activities}
+
+In the previous section, we calculated the Cash Flow from Operating Activities (\$11.92 billion). We now examine the remaining two sections of the Statement of Cash Flows: Investing and Financing activities, and reconcile the final cash balance.
+
+\subsection{Cash Flows from Investing Activities}
+This section tracks how a company invests its cash in assets (both current and non-current).
+\begin{itemize}
+    \item \textbf{General Rule:}
+          \begin{itemize}
+              \item \textbf{Purchase of Assets:} Use of cash (Cash Outflow $\rightarrow$ Deduct).
+              \item \textbf{Sale of Assets:} Source of cash (Cash Inflow $\rightarrow$ Add).
+          \end{itemize}
+\end{itemize}
+
+\textbf{Amazon 2015 Investing Activities:}
+\begin{itemize}
+    \item \textbf{Purchase of Property and Equipment (-4.59B):} Cash spent on physical assets.
+    \item \textbf{Acquisitions (-0.08B):} Cash spent to acquire other businesses.
+    \item \textbf{Marketable Securities:}
+          \begin{itemize}
+              \item \textbf{Purchases (-4.09B):} Cash spent to buy securities.
+              \item \textbf{Sales/Maturity (+3.03B):} Cash received from selling securities.
+          \end{itemize}
+\end{itemize}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{@{}lr@{}}
+        \toprule
+        \textbf{Investing Activity Item}               & \textbf{Amount (\$ Billion)} \\ \midrule
+        Purchase of property and equipment             & -4.59                        \\
+        Acquisitions                                   & -0.08                        \\
+        Sales and maturity of marketable securities    & +3.03                        \\
+        Purchases of marketable securities             & -4.09                        \\ \midrule
+        \textbf{Net Cash Used in Investing Activities} & \textbf{-6.45}               \\ \bottomrule
+    \end{tabular}
+    \caption{Amazon 2015 Investing Cash Flows}
+\end{table}
+\textit{(Note: The individual items sum to -5.73, but the reported total in the lecture is -6.45, likely due to other minor items not detailed).}
+
+\subsection{Cash Flows from Financing Activities}
+This section tracks changes in non-current liabilities and shareholders' equity (raising capital or paying it back).
+\begin{itemize}
+    \item \textbf{General Rule:}
+          \begin{itemize}
+              \item \textbf{Raising Capital (Debt/Equity):} Source of cash (Cash Inflow $\rightarrow$ Add).
+              \item \textbf{Repaying Capital:} Use of cash (Cash Outflow $\rightarrow$ Deduct).
+          \end{itemize}
+\end{itemize}
+
+\textbf{Amazon 2015 Financing Activities:}
+\begin{enumerate}
+    \item \textbf{Excess tax benefits from stock-based compensation (+0.12B):} Removed from Operating section and added here as it relates to equity financing.
+    \item \textbf{Long-term debt:} Raised \$0.35B (Inflow), Repaid \$1.65B (Outflow).
+    \item \textbf{Repayments of obligations:}
+          \begin{itemize}
+              \item Capital lease obligations: -2.60B.
+              \item Finance lease obligations: -0.12B.
+          \end{itemize}
+\end{enumerate}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{@{}lr@{}}
+        \toprule
+        \textbf{Cash Flows From Financing Activities}                 & \textbf{Billion \$} \\ \midrule
+        Excess tax benefit from stock based compensation              & 0.12                \\
+        Long-term debt issued                                         & 0.35                \\
+        Long-term debt repaid                                         & -1.65               \\
+        Principal capital repaid                                      & -2.46               \\
+        Repaid financial lease obligations                            & -0.12               \\
+        \textit{Long-term debt repayment}                             & \textit{-4.24}      \\
+        Repurchases of treasury stock                                 & 0.00                \\ \midrule
+        \textbf{Net cash provided by (used for) financing activities} & \textbf{-3.76}      \\ \bottomrule
+    \end{tabular}
+    \caption{Amazon 2015 Financing Cash Flows}
+\end{table}
+
+\subsection{Overall Reconciliation of Cash}
+Finally, we sum the cash flows from all three sections (plus any foreign currency effects) to find the total change in cash for the year.
+
+\begin{equation*}
+    \Delta \text{Cash} = \text{Operating CF} + \text{Investing CF} + \text{Financing CF} + \text{FX Effect}
+\end{equation*}
+
+\textbf{Amazon 2015 Reconciliation:}
+\begin{itemize}
+    \item \textbf{Operating Activities:} +\$11.92 billion
+    \item \textbf{Investing Activities:} -\$6.45 billion
+    \item \textbf{Financing Activities:} -\$3.76 billion
+    \item \textbf{Foreign Currency Effect:} -\$0.37 billion
+\end{itemize}
+
+\begin{equation*}
+    \textbf{Total Change in Cash} = 11.92 - 6.45 - 3.76 - 0.37 = \mathbf{+\$1.33 \text{ billion}} (approx)
+\end{equation*}
+\textit{(Note: Precise calculation yields 1.34; reported is 1.33 due to rounding).}
+
+\subsubsection{Balance Sheet Check}
+\begin{itemize}
+    \item \textbf{Beginning Cash Balance (Start of 2015):} \$14.56 billion
+    \item \textbf{Add: Change in Cash:} +\$1.33 billion
+    \item \textbf{Ending Cash Balance (End of 2015):} \textbf{\$15.89 billion}
+\end{itemize}
+This matches the Cash and Cash Equivalents reported on Amazon's 2015 Balance Sheet.
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+\begin{center}
+    \Large \textbf{Accounting Quiz (MCQs)}
+\end{center}
+
+\bigskip
+
+\begin{enumerate}
+
+    \item Cash from operating activities includes \rule{4cm}{0.4pt}
+          \begin{enumerate}[label=(\alph*)]
+              \item all cash receipts and all cash disbursements for loans, contributions from owners, and distributions to owners
+              \item all cash receipts and all cash disbursements for long-term business assets
+              \item all cash receipts and cash disbursements for routine sales and payments made in the course of doing business
+              \item detailed estimates of the sources of cash and uses of cash
+          \end{enumerate}
+
+    \item Stock that has been sold and then repurchased by the issuing corporation is called \rule{2cm}{0.4pt} stock.
+          \begin{enumerate}[label=(\alph*)]
+              \item authorized
+              \item treasury
+              \item issued
+              \item outstanding
+          \end{enumerate}
+
+    \item Harry \& Co purchased books in July. The books were sold to customers in August. Final cash payments were received in September. According to the revenue-recognition principle, revenue should be recorded in:
+          \begin{enumerate}[label=(\alph*)]
+              \item July
+              \item both August and September
+              \item August
+              \item September
+          \end{enumerate}
+
+    \item Fishy \& Co had revenues of \$2{,}000, cost of goods sold of \$780, advertising expense of \$100, and interest expense of \$25. Net income was \rule{2cm}{0.4pt}.
+          \begin{enumerate}[label=(\alph*)]
+              \item \$1{,}220
+              \item \$1{,}095
+              \item \$1{,}195
+              \item \$1{,}120
+          \end{enumerate}
+
+    \item The number of shares of stock a corporation may issue when it is formed is called \rule{2cm}{0.4pt} shares.
+          \begin{enumerate}[label=(\alph*)]
+              \item authorized
+              \item issued
+              \item treasury
+              \item outstanding
+          \end{enumerate}
+
+    \item Depreciation is \rule{5cm}{0.4pt}.
+          \begin{enumerate}[label=(\alph*)]
+              \item the revenue earned by a long-term asset over its useful life
+              \item the loss in market value of an asset
+              \item an increase in an asset’s value over time or usage
+              \item the allocation of a long-term asset’s cost to an expense account over the asset’s life
+          \end{enumerate}
+
+    \item Accounts payable represents \rule{5cm}{0.4pt}.
+          \begin{enumerate}[label=(\alph*)]
+              \item amounts owed to the company by customers
+              \item shareholders' equity
+              \item amounts owed by the company to suppliers
+              \item expenses
+          \end{enumerate}
+
+    \item An accrual is \rule{5cm}{0.4pt}.
+          \begin{enumerate}[label=(\alph*)]
+              \item another term for a deferral
+              \item a transaction in which the exchange of cash comes before the action takes place
+              \item a transaction in which the action comes before the exchange of cash
+              \item recorded when cash is paid in advance of receiving the service
+          \end{enumerate}
+
+\end{enumerate}
+
+\newpage
+\begin{center}
+    \Large \textbf{Answer Key}
+\end{center}
+
+\begin{enumerate}
+    \item (c)
+    \item (b)
+    \item (c)
+    \item (b)
+    \item (a)
+    \item (d)
+    \item (c)
+    \item (c)
+\end{enumerate}
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+
+\end{document}
