@@ -1,0 +1,111 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, mathtools}
+\usepackage{tikz}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{parskip}
+\usepackage{tabularx}
+\usepackage[utf8]{inputenc}
+\usepackage{tgpagella}
+\usepackage[T1]{fontenc}
+\usepackage{array} % For better table features
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+
+\title{Asset Pricing Theory}
+\author{Zubin}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+
+\section{Expected Returns and Risk}
+
+\subsection{Holding Period Return}
+The holding period return measures the total return earned on an investment over a specific period. It consists of two components:
+\begin{enumerate}
+    \item \textbf{Income:} Dividends or interest received.
+    \item \textbf{Capital Gain/Loss:} The change in the price of the asset.
+\end{enumerate}
+
+The general formula for Holding Period Return (HPR) is:
+\[
+    R = \frac{P_1 - P_0 + D_1}{P_0}
+\]
+Where:
+\begin{itemize}
+    \item $P_0$: Initial Price (Purchase Price)
+    \item $P_1$: Price at the end of the period
+    \item $D_1$: Dividend paid during the period
+\end{itemize}
+
+\textbf{Example:}
+You buy a stock for \$50 ($P_0$). After one year, the price is \$55 ($P_1$) and it paid a dividend of \$1 ($D_1$).
+\[
+    R = \frac{55 - 50 + 1}{50} = \frac{6}{50} = 0.12 \text{ or } 12\%
+\]
+
+\subsection{Expected Return and Risk}
+In reality, future prices ($P_1$) and dividends ($D_1$) are unknown. Therefore, the return is a \textbf{random variable} characterized by possible outcomes and their probabilities.
+
+\begin{itemize}
+    \item \textbf{Expected Return ($E[R]$):} The probability-weighted average of all possible returns. It is used as the discount rate for present value calculations.
+    \item \textbf{Risk:} The uncertainty of future returns (both good and bad outcomes). It is typically measured by the \textbf{Variance} ($\sigma^2$) or \textbf{Standard Deviation} ($\sigma$).
+\end{itemize}
+
+\subsection{Comparison: Risk-Free vs. Risky Investment}
+Consider an investor with \$100 and two investment choices:
+
+\subsubsection{Investment 1: Risk-Free}
+Guaranteed payoff of \$105 after 1 year.
+\begin{itemize}
+    \item \textbf{Return:} $\frac{105 - 100}{100} = 5\%$
+    \item \textbf{Risk:} Since there is no uncertainty, Risk ($\sigma$) = 0.
+\end{itemize}
+
+\subsubsection{Investment 2: Risky}
+Payoff depends on probabilities:
+\begin{itemize}
+    \item 60\% probability of \$150 (Return: $\frac{150-100}{100} = 50\%$)
+    \item 40\% probability of \$80 (Return: $\frac{80-100}{100} = -20\%$)
+\end{itemize}
+
+\textbf{Calculating Expected Return:}
+\[
+    E[R] = (0.6 \times 0.50) + (0.4 \times -0.20) = 0.30 - 0.08 = 0.22 \text{ or } 22\%
+\]
+
+\textbf{Calculating Risk (Variance and Standard Deviation):}
+Variance is the weighted average of squared deviations from the expected return.
+\[
+    \sigma^2 = \sum P_i (R_i - E[R])^2
+\]
+\[
+    \sigma^2 = 0.6(0.50 - 0.22)^2 + 0.4(-0.20 - 0.22)^2
+\]
+\[
+    \sigma^2 = 0.6(0.28)^2 + 0.4(-0.42)^2 = 0.6(0.0784) + 0.4(0.1764)
+\]
+\[
+    \sigma^2 = 0.04704 + 0.07056 = 0.1176
+\]
+\[
+    \text{Standard Deviation } (\sigma) = \sqrt{0.1176} \approx 34.29\%
+\]
+
+\subsubsection{Conclusion}
+Investment 2 offers a higher expected return (22\% vs 5\%) but comes with significantly higher risk (34.29\% vs 0\%). Whether the additional 17\% return is sufficient compensation for the risk depends on the investor's \textbf{utility} (attitude toward risk) and \textbf{asset pricing models}.
+
+\end{document}
