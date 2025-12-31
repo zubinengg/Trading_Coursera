@@ -201,15 +201,30 @@ Beta is calculated as the covariance between the risky asset's returns and the m
 %-----------------------------------------------------------------
 
 \section{Calculating CAPM Beta}
-To calculate the beta of risky assets, we apply the CAPM formula using a numerical example with three risky assets.
+We now apply the CAPM formula to calculate the betas of risky assets.
 
 \subsection{Scenario Setup}
-Consider a world with three risky assets (X, Y, Z) and one risk-free asset ($R_f = 5\%$).
+Let's revisit our three risky asset case (X, Y, Z) and one risk-free asset ($R_f = 5\%$). In previous examples, we found that some portfolios had negative weights, which cannot be a market portfolio. To solve this, we adjust the covariances slightly to ensure positive weights.
+
 \begin{itemize}
     \item \textbf{Asset X:} $E[R] = 10\%$, $\sigma = 7\%$
     \item \textbf{Asset Y:} $E[R] = 20\%$, $\sigma = 10\%$
     \item \textbf{Asset Z:} $E[R] = 15\%$, $\sigma = 12\%$
 \end{itemize}
+
+\begin{table}[H]
+    \centering
+    \caption{Expected Return and Risk}
+    \begin{tabular}{|c|c|c|}
+        \hline
+                     & Expected Return & Risk \\
+        \hline
+        Investment X & 10\%            & 7\%  \\
+        Investment Y & 20\%            & 10\% \\
+        Investment Z & 15\%            & 12\% \\
+        \hline
+    \end{tabular}
+\end{table}
 \textbf{Covariances:}
 \begin{itemize}
     \item $Cov(X, Y) = 0.0032$
@@ -217,9 +232,40 @@ Consider a world with three risky assets (X, Y, Z) and one risk-free asset ($R_f
     \item $Cov(Y, Z) = 0.0054$
 \end{itemize}
 
+\begin{table}[H]
+    \centering
+    \caption{Covariance Matrix}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Covariance   & Investment X & Investment Y & Investment Z \\
+        \hline
+        Investment X & 0.0049       & 0.0032       & 0.0013       \\
+        Investment Y & 0.0032       & 0.0100       & 0.0054       \\
+        Investment Z & 0.0013       & 0.0054       & 0.0144       \\
+        \hline
+    \end{tabular}
+\end{table}
+
 \subsection{The Market Portfolio}
-Using a solver, the weights for the Mean-Variance Efficient (Market) Portfolio are found to be:
+Using Solver in Excel, the weights for the Mean-Variance Efficient (Market) Portfolio are found to be:
 $w_X = 0.0546$, $w_Y = 0.8424$, $w_Z = 0.1030$.
+Since all weights are positive, this is a valid market portfolio.
+
+\subsection*{Standard Deviation of the Market Portfolio}
+\begin{align*}
+    SD_P & = \sqrt{
+        \begin{aligned}
+             & 0.0546^2 \times 0.07^2 + 0.8424^2 \times 0.10^2 + 0.1030^2 \times 0.12^2 \\
+             & + 2 \times 0.0546 \times 0.8424 \times 0.0032                            \\
+             & + 2 \times 0.0546 \times 0.1030 \times 0.0013                            \\
+             & + 2 \times 0.8424 \times 0.1030 \times 0.0054
+        \end{aligned}
+    }
+\end{align*}
+
+\[
+    SD_P = 9.22\%
+\]
 
 \textbf{Market Expected Return ($E[R_m]$):}
 \[
@@ -229,14 +275,15 @@ $w_X = 0.0546$, $w_Y = 0.8424$, $w_Z = 0.1030$.
 \textbf{Market Standard Deviation ($\sigma_m$):}
 Calculated using the portfolio variance formula (sum of weighted variances and covariances):
 \[
-    \sigma_m = 9.22\% \implies \sigma_m^2 \approx 0.0085
+    \sigma_m = 9.22\% \implies \sigma_m^2 = 0.0922^2 \approx 0.0085
 \]
 
 \subsection{Calculating Covariance with the Market}
-To find Beta, we calculate the covariance of each asset's returns with the market portfolio's returns.
+To find Beta, we calculate the covariance of each asset's returns with the market portfolio's returns. The covariance of X with the market is the weighted sum of the covariance of X with each component of the market.
 \[
     Cov(R_X, R_m) = w_X Var(X) + w_Y Cov(X, Y) + w_Z Cov(X, Z)
 \]
+Note that $Cov(X,X)$ is simply the variance of X ($0.07^2$).
 \[
     Cov(R_X, R_m) = 0.0546(0.07^2) + 0.8424(0.0032) + 0.1030(0.0013) \approx 0.0031
 \]
@@ -251,21 +298,60 @@ Using $\beta_i = \frac{Cov(R_i, R_m)}{\sigma_m^2}$ (where $\sigma_m^2 = 0.0922^2
 \end{itemize}
 \textbf{Conclusion:} Asset Y has the highest expected return (20\%) and highest beta (1.08), while X has the lowest return (10\%) and lowest beta (0.36). This aligns with CAPM: higher systematic risk (beta) yields higher expected returns.
 
-\begin{table}[H]
-    \centering
-    \caption{Summary of Asset Parameters and Beta Calculation}
-    \begin{tabular}{lcccc}
-        \toprule
-        \textbf{Asset} & \textbf{Expected Return} & \textbf{Standard Deviation} & \textbf{Covariance (w/ Market)} & \textbf{Beta ($\beta$)} \\
-        \midrule
-        Asset X        & 10\%                     & 7\%                         & 0.0031                          & 0.36                    \\
-        Asset Y        & 20\%                     & 10\%                        & 0.0092                          & 1.08                    \\
-        Asset Z        & 15\%                     & 12\%                        & 0.0061                          & 0.72                    \\
-        \bottomrule
-    \end{tabular}
-\end{table}
 
 \noindent\rule{\linewidth}{1pt}
 %-----------------------------------------------------------------
+
+\section{Multifactor Models}
+
+\subsection{Motivation}
+So far, we have assumed that only one variable, the market portfolio, affects expected returns (as in CAPM). However, this may not be realistic for several reasons:
+\begin{enumerate}
+    \item \textbf{Other Single Factors:} It could be that another single factor, such as interest rates or the business cycle, affects expected returns for all risky assets.
+    \item \textbf{Multiple Factors:} It is possible that a number of macroeconomic factors simultaneously determine expected returns.
+\end{enumerate}
+
+\subsection{Decomposition of Returns}
+The return of any asset can be decomposed into two parts: an \textbf{expected} part and an \textbf{unanticipated} part. The unanticipated part consists of shocks attributable to risk factors and firm-specific shocks.
+\[
+    r_i = E[r_i] + \beta_i F + e_i
+\]
+Where:
+\begin{itemize}
+    \item $E[r_i]$: Expected return of asset $i$.
+    \item $F$: Unanticipated shock to the risk factor ($E[F] = 0$).
+    \item $\beta_i$: Sensitivity of asset $i$'s returns to the risk factor.
+    \item $e_i$: Unanticipated firm-specific shock ($E[e_i] = 0$).
+\end{itemize}
+
+\textbf{Example (Single Factor):}
+Consider Microsoft stock ($r_M$) where the single risk factor is GDP growth.
+\[
+    r_M = E[r_M] + \beta_M (GDP_{actual} - GDP_{expected}) + e_M
+\]
+Here, $(GDP_{actual} - GDP_{expected})$ is the unanticipated shock to the risk factor.
+
+\subsection{Multifactor Model (K-Factors)}
+We can extend the single index model to a model with $K$ factors.
+\[
+    r_i = E[r_i] + \beta_{i1}F_1 + \beta_{i2}F_2 + \dots + \beta_{iK}F_K + e_i
+\]
+Each $F_j$ represents the unanticipated shock to risk factor $j$, and $\beta_{ij}$ is the sensitivity to that factor.
+
+\subsubsection{Two-Factor Example}
+Consider a model with two risk factors: \textbf{GDP Growth} and \textbf{Inflation}.
+\[
+    r_M = E[r_M] + \beta_{M,1}(GDP_{act} - GDP_{exp}) + \beta_{M,2}(Inf_{act} - Inf_{exp}) + e_M
+\]
+
+\textbf{Numerical Example:}
+\begin{itemize}
+    \item Microsoft Expected Return ($E[r_M]$) = 10\%
+    \item GDP: Expected = 4\%, Actual = 5\%. Sensitivity ($\beta_1$) = 1.
+    \item Inflation: Expected = 6\%, Actual = 7\%. Sensitivity ($\beta_2$) = 0.4.
+\end{itemize}
+\[
+    r_M = 10\% + 1(5\% - 4\%) + 0.4(7\% - 6\%) + e_M = 11.4\% + e_M
+\]
 
 \end{document}
