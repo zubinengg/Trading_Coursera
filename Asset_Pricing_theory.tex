@@ -90,7 +90,7 @@ Payoff depends on probabilities:
 \textbf{Calculating Risk (Variance and Standard Deviation):}
 Variance is the weighted average of squared deviations from the expected return.
 \[
-    \sigma^2 = \sum P_i (R_i - E[R])^2
+    \sigma^2 = \sum P_i (r_i - E[R])^2
 \]
 \[
     \sigma^2 = 0.6(0.50 - 0.22)^2 + 0.4(-0.20 - 0.22)^2
@@ -107,5 +107,151 @@ Variance is the weighted average of squared deviations from the expected return.
 
 \subsubsection{Conclusion}
 Investment 2 offers a higher expected return (22\% vs 5\%) but comes with significantly higher risk (34.29\% vs 0\%). Whether the additional 17\% return is sufficient compensation for the risk depends on the investor's \textbf{utility} (attitude toward risk) and \textbf{asset pricing models}.
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+
+\section{Diversification and Risk}
+
+\subsection{The Concept of Diversification}
+Investing in a single stock is risky; if the company fails, the investor loses their entire investment. To mitigate this, investors form a \textbf{portfolio} (a collection of stocks).
+\begin{itemize}
+    \item \textbf{Diversification:} The strategy of investing in multiple assets to spread risk.
+    \item \textbf{Mechanism:} In a portfolio, the poor performance of some stocks is likely to be offset by the good performance of others. Therefore, the risk (variance) of a portfolio is typically lower than the risk of a single stock.
+\end{itemize}
+
+\subsection{Types of Risk}
+As the number of stocks in a portfolio increases, the portfolio variance (risk) decreases. This relationship reveals two distinct types of risk:
+
+\begin{enumerate}
+    \item \textbf{Diversifiable Risk (Unsystematic Risk):}
+          \begin{itemize}
+              \item The portion of risk that can be eliminated by adding more stocks to the portfolio.
+              \item It is represented by the gap between the total risk curve and the minimum risk floor.
+              \item This risk becomes negligible with a portfolio of about 50 to 60 stocks.
+          \end{itemize}
+    \item \textbf{Systematic Risk:}
+          \begin{itemize}
+              \item The portion of risk that \textbf{cannot} be eliminated, regardless of how many stocks are added.
+              \item It represents the inherent uncertainty of the market that affects all stocks.
+          \end{itemize}
+\end{enumerate}
+
+\subsection{Compensation for Risk}
+A fundamental principle is that investors should \textbf{not} expect compensation (higher returns) for holding diversifiable risk. Since this risk can be eliminated for free through diversification, the market does not reward it. Investors are compensated only for holding systematic risk.
+
+\subsubsection{Arbitrage Example}
+Consider a scenario with a risk-free rate of 5\% and four stocks (A, B, C, D) that have \textbf{no systematic risk} (only diversifiable risk).
+\begin{itemize}
+    \item Expected Returns: A (12\%), B (15\%), C (17\%), D (20\%).
+\end{itemize}
+If an investor forms an equally weighted portfolio (\$25 in each):
+\[
+    E[R_p] = 0.25(12\%) + 0.25(15\%) + 0.25(17\%) + 0.25(20\%) = 16\%
+\]
+\textbf{Analysis:} Since the stocks have no systematic risk, a diversified portfolio eliminates the diversifiable risk, resulting in a total risk of zero. This creates a risk-free asset yielding 16\%, while the market risk-free rate is only 5\%. Investors would borrow at 5\% and invest in this portfolio to earn a guaranteed profit (Arbitrage). This demand would drive up stock prices, reducing returns until they equal the risk-free rate (5\%).
+
+\textbf{Conclusion:} In the long run, investors are not compensated for diversifiable risk.
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+\section{The Capital Asset Pricing Model (CAPM)}
+
+\subsection{The CAPM Formula}
+The Capital Asset Pricing Model (CAPM) defines the mathematical relationship between expected return and risk. The formula is written as:
+\[
+    E[r_i] = r_f + \beta_i (E[r_m] - r_f)
+\]
+Where:
+\begin{itemize}
+    \item $E[r_i]$: Expected return of risky asset $i$.
+    \item $r_f$: Risk-free rate of return.
+    \item $\beta_i$: Beta of the risky asset $i$.
+    \item $E[r_m]$: Expected return of the market portfolio.
+\end{itemize}
+
+In plain English, the expected return of a risky asset over and above the risk-free rate equals the sensitivity of its return with respect to the market ($\beta$) times the expected market risk premium.
+
+\subsection{Market Risk Premium}
+The term $(E[r_m] - r_f)$ is the \textbf{Expected Market Risk Premium}. It represents the return in excess of the risk-free rate that an investor expects to earn from holding the market portfolio. It is the compensation for holding the risk of the market portfolio.
+
+\subsection{Beta ($\beta$) and Systematic Risk}
+Since the market portfolio is mean-variance efficient, all diversifiable (idiosyncratic) risk has been diversified away. The risk that remains is \textbf{Systematic Risk}.
+\begin{itemize}
+    \item Beta is a measure of systematic risk.
+    \item Investors are compensated \textbf{only} for holding systematic risk, not diversifiable risk.
+\end{itemize}
+
+\subsubsection{Calculating Beta}
+Beta is calculated as the covariance between the risky asset's returns and the market portfolio's returns, divided by the variance of the market portfolio's returns:
+\[
+    \beta_i = \frac{Cov(r_i, r_m)}{Var(r_m)} = \frac{Cov(r_i, r_m)}{\sigma_m^2}
+\]
+
+\subsubsection{Interpreting Beta Values}
+\begin{itemize}
+    \item $\beta = 1$: The beta of the market portfolio is 1.
+    \item $\beta > 1$: The asset is riskier than the market portfolio.
+    \item $\beta < 1$: The asset is less risky than the market portfolio.
+    \item $\beta = 0$: The risk-free asset has a beta of 0.
+    \item $\beta < 0$: A negative beta means the asset's return moves in the opposite direction to the market's return.
+\end{itemize}
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+
+\section{Calculating CAPM Beta}
+To calculate the beta of risky assets, we apply the CAPM formula using a numerical example with three risky assets.
+
+\subsection{Scenario Setup}
+Consider a world with three risky assets (X, Y, Z) and one risk-free asset ($R_f = 5\%$).
+\begin{itemize}
+    \item \textbf{Asset X:} $E[R] = 10\%$, $\sigma = 7\%$
+    \item \textbf{Asset Y:} $E[R] = 20\%$, $\sigma = 10\%$
+    \item \textbf{Asset Z:} $E[R] = 15\%$, $\sigma = 12\%$
+\end{itemize}
+\textbf{Covariances:}
+\begin{itemize}
+    \item $Cov(X, Y) = 0.0032$
+    \item $Cov(X, Z) = 0.0013$
+    \item $Cov(Y, Z) = 0.0054$
+\end{itemize}
+
+\subsection{The Market Portfolio}
+Using a solver, the weights for the Mean-Variance Efficient (Market) Portfolio are found to be:
+$w_X = 0.0546$, $w_Y = 0.8424$, $w_Z = 0.1030$.
+
+\textbf{Market Expected Return ($E[R_m]$):}
+\[
+    E[R_m] = (0.0546 \times 10\%) + (0.8424 \times 20\%) + (0.1030 \times 15\%) = 18.94\%
+\]
+
+\textbf{Market Standard Deviation ($\sigma_m$):}
+Calculated using the portfolio variance formula (sum of weighted variances and covariances):
+\[
+    \sigma_m = 9.22\% \implies \sigma_m^2 \approx 0.0085
+\]
+
+\subsection{Calculating Covariance with the Market}
+To find Beta, we calculate the covariance of each asset's returns with the market portfolio's returns.
+\[
+    Cov(R_X, R_m) = w_X Var(X) + w_Y Cov(X, Y) + w_Z Cov(X, Z)
+\]
+\[
+    Cov(R_X, R_m) = 0.0546(0.07^2) + 0.8424(0.0032) + 0.1030(0.0013) \approx 0.0031
+\]
+Similarly, $Cov(R_Y, R_m) = 0.0092$ and $Cov(R_Z, R_m) = 0.0061$.
+
+\subsection{Calculating Beta}
+Using $\beta_i = \frac{Cov(R_i, R_m)}{\sigma_m^2}$ (where $\sigma_m^2 = 0.0922^2$):
+\begin{itemize}
+    \item $\beta_X = \frac{0.0031}{0.0085} = 0.36$
+    \item $\beta_Y = \frac{0.0092}{0.0085} = 1.08$
+    \item $\beta_Z = \frac{0.0061}{0.0085} = 0.72$
+\end{itemize}
+\textbf{Conclusion:} Asset Y has the highest expected return (20\%) and highest beta (1.08), while X has the lowest return (10\%) and lowest beta (0.36). This aligns with CAPM: higher systematic risk (beta) yields higher expected returns.
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
 
 \end{document}
