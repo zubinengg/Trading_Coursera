@@ -354,4 +354,169 @@ Consider a model with two risk factors: \textbf{GDP Growth} and \textbf{Inflatio
     r_M = 10\% + 1(5\% - 4\%) + 0.4(7\% - 6\%) + e_M = 11.4\% + e_M
 \]
 
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+
+\section{Arbitrage Pricing Theory (APT)}
+\subsection{Learning Outcomes}
+After this section, you will be able to:
+\begin{itemize}
+    \item Understand the Arbitrage Pricing Theory (APT).
+    \item Use the APT to calculate expected returns.
+\end{itemize}
+
+\subsection{The Arbitrage Pricing Theory Model}
+The APT is the most general asset pricing model. It relates expected returns and risk through factor betas. It posits that the expected return of asset $i$, $E[r_i]$, is given by:
+\[
+    E[r_i] = r_f + \beta_{i,1} RP_1 + \beta_{i,2} RP_2 + \dots + \beta_{i,K} RP_K
+\]
+Where:
+\begin{itemize}
+    \item $E[r_i]$: Expected return of asset $i$.
+    \item $r_f$: Risk-free rate.
+    \item $\beta_{i,j}$: Sensitivity of asset $i$'s returns to factor $j$.
+    \item $RP_j$: Risk premium for factor $j$ (excess expected return over the risk-free rate).
+\end{itemize}
+
+\subsubsection{Comparison with CAPM}
+\begin{itemize}
+    \item \textbf{CAPM:} A specific case where the market portfolio is the only risk factor.
+    \item \textbf{APT:} Allows for multiple risk factors. Like CAPM, it is a theoretical model.
+\end{itemize}
+
+\subsection{The Law of One Price and Arbitrage}
+APT relies on the \textbf{Law of One Price}, which states that assets with the same future payoff must have the same current price.
+\begin{itemize}
+    \item \textbf{Arbitrage Opportunity:} A chance to make infinite profits with no risk and no net investment.
+    \item If prices violate the Law of One Price, investors will exploit the arbitrage opportunity until prices correct.
+\end{itemize}
+
+\subsection{Determining Risk Premiums: An Example}
+How do we determine the risk premium for each factor? We use \textbf{Factor Portfolios}. A factor portfolio tracks a specific source of macroeconomic risk ($\beta=1$ for that factor) and is uncorrelated with others ($\beta=0$ for others).
+
+\textbf{Example Setup:}
+\begin{itemize}
+    \item Risk-free rate ($r_f$) = 3\%.
+    \item \textbf{Portfolio G (GDP Factor):} $\beta_{GDP}=1, \beta_{Inf}=0, E[R_G]=10\%$.
+    \item \textbf{Portfolio I (Inflation Factor):} $\beta_{GDP}=0, \beta_{Inf}=1, E[R_I]=13\%$.
+    \item \textbf{Microsoft:} $\beta_{GDP}=1, \beta_{Inf}=0.4$.
+\end{itemize}
+
+\textbf{Replicating Portfolio Q:}
+We form a portfolio Q to mimic Microsoft's sensitivities:
+Weight in G ($w_G$) = 1.0; Weight in I ($w_I$) = 0.4; Weight in Risk-free ($w_{rf}$) = $1 - 1.0 - 0.4 = -0.4$.
+
+\[
+    E[R_Q] = (1 \times 10\%) + (0.4 \times 13\%) + (-0.4 \times 3\%) = 14\%
+\]
+To prevent arbitrage, Microsoft must also have an expected return of 14\%.
+
+\textbf{Verification using APT Formula:}
+\[
+    E[r_M] = 3\% + 1(10\% - 3\%) + 0.4(13\% - 3\%) = 14\%
+\]
+
+\subsection{Security Market Plane and Relative Pricing}
+With two factors, the relationship is a \textbf{Security Market Plane} (sensitivities on two axes, expected return on the third). Assets that do not lie on the SMP present arbitrage opportunities.
+
+\textbf{Relative Pricing:} APT determines the price of an asset relative to the factor portfolios. It does not determine if the factor portfolios themselves are correctly priced (absolute pricing).
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+
+\section{Arbitrage and Factor Sensitivities}
+
+\subsection{Learning Outcomes}
+After this section, you will be able to:
+\begin{itemize}
+    \item Identify arbitrage opportunities.
+    \item Solve for factor sensitivities given information on asset returns and unanticipated shocks to risk factors.
+\end{itemize}
+
+\subsection{Identifying Arbitrage Opportunities: An Example}
+Consider a world with two time periods ($t=0$ and $t=1$) and two equally likely states in $t=1$: \textbf{Good} and \textbf{Bad} (50\% probability each).
+
+\textbf{Stock Data:}
+\begin{itemize}
+    \item \textbf{Microsoft:} $P_0 = 25$. $P_1(\text{Good}) = 40$, $P_1(\text{Bad}) = 20$.
+    \item \textbf{Intel:} $P_0 = 20$. $P_1(\text{Good}) = 60$, $P_1(\text{Bad}) = 0$.
+    \item \textbf{Coke:} $P_0 = 22.5$. $P_1(\text{Good}) = 55$, $P_1(\text{Bad}) = 15$.
+\end{itemize}
+
+\textbf{Is there an arbitrage opportunity?}
+Yes. We can construct a zero-cost portfolio with a guaranteed positive payoff.
+\begin{itemize}
+    \item \textbf{Strategy:} Buy 1 share of Coke, Short 0.5 share of Microsoft, Short 0.5 share of Intel.
+    \item \textbf{Cost at $t=0$:}
+          \[
+              (1 \times 22.5) - (0.5 \times 25) - (0.5 \times 20) = 22.5 - 12.5 - 10 = 0
+          \]
+    \item \textbf{Payoff at $t=1$ (Good State):}
+          \[
+              (1 \times 55) - (0.5 \times 40) - (0.5 \times 60) = 55 - 20 - 30 = 5
+          \]
+    \item \textbf{Payoff at $t=1$ (Bad State):}
+          \[
+              (1 \times 15) - (0.5 \times 20) - (0.5 \times 0) = 15 - 10 - 0 = 5
+          \]
+\end{itemize}
+\textbf{Result:} The portfolio costs nothing to set up and guarantees a payoff of 5 regardless of the state. This is an arbitrage opportunity.
+
+\subsection{Using APT to Determine Correct Prices}
+APT relies on relative pricing. Assuming Microsoft and Intel are correctly priced, we can determine the correct price of Coke (which implies Coke is currently mispriced at 22.5).
+
+\subsubsection{Step 1: Identify Risk Factors}
+Assume a single risk factor: the \textbf{Business Cycle}.
+\begin{itemize}
+    \item Value in Good State = 1.
+    \item Value in Bad State = 0.
+    \item Expected Value $E[F] = 0.5(1) + 0.5(0) = 0.5$.
+\end{itemize}
+\textbf{Unanticipated Shocks ($F - E[F]$):}
+\begin{itemize}
+    \item Good State: $1 - 0.5 = 0.5$.
+    \item Bad State: $0 - 0.5 = -0.5$.
+\end{itemize}
+
+\subsubsection{Step 2: Determine Factor Sensitivities ($\beta$) and Expected Returns}
+We use the single factor model equation:
+\[
+    r = E[r] + \beta (F_{\text{shock}})
+\]
+(Note: We assume no firm-specific risk for simplicity in this example).
+
+\textbf{Microsoft Analysis:}
+\begin{itemize}
+    \item Return (Good): $\frac{40}{25} - 1 = 60\% = 0.60$.
+    \item Return (Bad): $\frac{20}{25} - 1 = -20\% = -0.20$.
+\end{itemize}
+System of equations:
+\begin{align*}
+    0.60  & = E[r_M] + \beta_M(0.5)  \\
+    -0.20 & = E[r_M] + \beta_M(-0.5)
+\end{align*}
+Solving this system:
+\begin{itemize}
+    \item Summing the equations: $0.40 = 2 E[r_M] \implies E[r_M] = 20\%$.
+    \item Subtracting the second from the first: $0.80 = \beta_M(1) \implies \beta_M = 0.8$.
+\end{itemize}
+
+\textbf{Intel Analysis:}
+\begin{itemize}
+    \item Return (Good): $\frac{60}{20} - 1 = 200\% = 2.00$.
+    \item Return (Bad): $\frac{0}{20} - 1 = -100\% = -1.00$.
+\end{itemize}
+System of equations:
+\begin{align*}
+    2.00  & = E[r_I] + \beta_I(0.5)  \\
+    -1.00 & = E[r_I] + \beta_I(-0.5)
+\end{align*}
+Solving this system:
+\begin{itemize}
+    \item Summing the equations: $1.00 = 2 E[r_I] \implies E[r_I] = 50\%$.
+    \item Subtracting the second from the first: $3.00 = \beta_I(1) \implies \beta_I = 3$.
+\end{itemize}
+
+\textit{Note: In the next section, we will use these values to compute the risk premium and the arbitrage-free price of Coke.}
+
 \end{document}
