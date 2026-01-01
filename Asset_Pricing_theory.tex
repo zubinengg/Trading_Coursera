@@ -519,4 +519,102 @@ Solving this system:
 
 \textit{Note: In the next section, we will use these values to compute the risk premium and the arbitrage-free price of Coke.}
 
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+
+\section{Calculating Arbitrage-Free Prices and APT Drawbacks}
+
+\subsection{Learning Outcomes}
+After this section, you will be able to:
+\begin{itemize}
+    \item Solve for risk premiums given factor sensitivities.
+    \item Determine the arbitrage-free price of an asset given the prices of other risky assets.
+    \item Discuss a key drawback of the APT regarding relative pricing.
+\end{itemize}
+
+\subsection{Step 2: Solving for Risk Premiums}
+Continuing from the previous example, we have the expected returns and betas for Microsoft and Intel (assuming they are correctly priced):
+\begin{itemize}
+    \item \textbf{Microsoft:} $E[r_M] = 20\% = 0.20$, $\beta_M = 0.8$.
+    \item \textbf{Intel:} $E[r_I] = 50\% = 0.50$, $\beta_I = 3$.
+\end{itemize}
+
+Using the APT equation $E[r] = r_f + \beta (RP)$, we set up a system of two equations with two unknowns ($r_f$ and $RP$):
+\begin{align*}
+    0.20 & = r_f + 0.8(RP) \\
+    0.50 & = r_f + 3(RP)
+\end{align*}
+
+\textbf{Solving the system:}
+Subtracting the first equation from the second:
+\[
+    0.30 = 2.2(RP) \implies RP = \frac{0.30}{2.2} \approx 0.1364 \text{ or } 13.64\%
+\]
+Substituting $RP$ back into the first equation:
+\[
+    r_f = 0.20 - 0.8(0.1364) = 0.20 - 0.1091 = 0.0909 \text{ or } 9.09\%
+\]
+So, the implied risk-free rate is 9.09\% and the factor risk premium is 13.64\%.
+
+\subsection{Step 3: Determining the Arbitrage-Free Price of Coke}
+Now we determine the correct price ($P$) for Coke using the APT parameters derived above.
+\begin{itemize}
+    \item \textbf{Coke's Payoffs:} Good State = 55, Bad State = 15.
+    \item \textbf{APT Requirement:} $E[r_C] = 0.0909 + 0.1364 \beta_C$.
+\end{itemize}
+
+We express Coke's expected return and beta in terms of its unknown price $P$.
+\begin{itemize}
+    \item Return (Good): $\frac{55}{P} - 1$.
+    \item Return (Bad): $\frac{15}{P} - 1$.
+\end{itemize}
+Using the single factor model decomposition (shocks: Good $+0.5$, Bad $-0.5$):
+\begin{align*}
+    \frac{55}{P} - 1 & = E[r_C] + 0.5 \beta_C \\
+    \frac{15}{P} - 1 & = E[r_C] - 0.5 \beta_C
+\end{align*}
+Solving for $E[r_C]$ and $\beta_C$:
+\begin{itemize}
+    \item Summing: $\frac{70}{P} - 2 = 2 E[r_C] \implies E[r_C] = \frac{35}{P} - 1$.
+    \item Subtracting: $\frac{40}{P} = \beta_C$.
+\end{itemize}
+
+Substitute these into the APT equation:
+\[
+    \left( \frac{35}{P} - 1 \right) = 0.0909 + 0.1364 \left( \frac{40}{P} \right)
+\]
+\[
+    \frac{35}{P} - 1 = 0.0909 + \frac{5.456}{P}
+\]
+\[
+    \frac{35 - 5.456}{P} = 1.0909
+\]
+\[
+    P = \frac{29.544}{1.0909} \approx 27.08
+\]
+The arbitrage-free price of Coke is \textbf{27.08}.
+
+\subsection{Verifying the Arbitrage Portfolio}
+If Coke is priced at 27.08, let's check the portfolio constructed earlier (Buy 1 Coke, Short 0.5 Microsoft, Short 0.5 Intel).
+\begin{itemize}
+    \item \textbf{Cost:} $27.08 - 0.5(25) - 0.5(20) = 27.08 - 12.5 - 10 = 4.58$.
+    \item \textbf{Payoff:} Always 5 (Risk-free).
+    \item \textbf{Return:} $\frac{5}{4.58} - 1 \approx 0.0917 \approx 9.1\%$.
+\end{itemize}
+This matches the implied risk-free rate ($9.09\%$), confirming no arbitrage exists at this price.
+
+\subsection{Drawbacks of APT: Relative Pricing}
+APT relies on the assumption that the benchmark assets are correctly priced. If we choose different pairs of assets as our "correct" benchmarks, we get different results.
+
+\begin{itemize}
+    \item \textbf{Assuming Intel \& Coke are correct:} $r_f = 63.64\%$, $RP = -4.55\%$.
+    \item \textbf{Assuming Microsoft \& Coke are correct:} $r_f = -9.09\%$, $RP = 36.36\%$.
+\end{itemize}
+
+\textbf{Conclusion:}
+\begin{itemize}
+    \item APT is about relative pricing. It ensures internal consistency but does not guarantee that the entire market is priced correctly in absolute terms.
+    \item Depending on the reference assets, implied parameters ($r_f, RP$) can be unrealistic (e.g., negative risk-free rates).
+\end{itemize}
+
 \end{document}
