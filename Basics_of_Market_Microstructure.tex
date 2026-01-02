@@ -16,7 +16,7 @@
 \usepackage{tcolorbox}
 \usepackage{enumitem}
 
-\title{Asset Pricing Theory}
+\title{Basics of Market Microstructure}
 \author{Zubin}
 \date{\today}
 
@@ -29,6 +29,42 @@
 
 \noindent\rule{\linewidth}{1pt}
 %-----------------------------------------------------------------
-\section{Expected Returns and Risk}
+\section{Markets and Limit Orders}
+
+\subsection{Introduction to Trading Mechanics}
+We now move on from the basics of financial statements and risk-return relationships to the mechanics of trading on exchanges. Transaction costs eat into investment returns, so it is important to understand how to measure these costs and manage orders to minimize them.
+
+\subsection{What is an Order?}
+An order is a set of instructions sent to an exchange (usually via a broker) to trade a financial security. Every order must specify:
+\begin{enumerate}
+    \item \textbf{Security:} The asset to trade, usually identified by a Ticker Symbol (e.g., AMZN for Amazon, F for Ford).
+    \item \textbf{Side:} Whether to Buy or Sell.
+    \item \textbf{Quantity:} The number of shares or units to trade.
+\end{enumerate}
+Orders may also include additional instructions, such as price limits, expiration terms, or exchange routing.
+
+\subsection{Market Orders}
+A \textbf{Market Order} is the simplest type of order, containing only the three required instructions (Security, Side, Quantity).
+\begin{itemize}
+    \item \textbf{Definition:} An order to execute the trade immediately at the best currently available price.
+    \item \textbf{Pros:} Execution is almost certain.
+    \item \textbf{Cons:} Price is uncertain. You accept whatever the market offers, which might be unfavorable in volatile conditions.
+\end{itemize}
+\textbf{Example:} A market order to buy 100 shares of Twitter guarantees you get the shares, but the price is determined by the market at the moment of execution.
+
+\subsection{Limit Orders}
+A \textbf{Limit Order} allows the trader to specify the price at which they are willing to trade. This specified price is called the \textbf{Limit Price}.
+\begin{itemize}
+    \item \textbf{Buy Limit Order:} Sets a \textbf{maximum} purchase price. The trade executes only at the limit price or lower.
+    \item \textbf{Sell Limit Order:} Sets a \textbf{minimum} selling price. The trade executes only at the limit price or higher.
+\end{itemize}
+\textbf{Example:} If you place a limit order to buy Twitter at \$19, you ensure you never pay more than \$19. If the market price is \$19.50, the order will not execute.
+
+\subsection{Summary: Market vs. Limit Orders}
+\begin{itemize}
+    \item \textbf{Market Orders:} Execution is certain; Price is uncertain.
+    \item \textbf{Limit Orders:} Price is controlled (certain not to be worse than limit); Execution is uncertain.
+\end{itemize}
+Most modern exchanges are \textbf{Electronic Limit Order Markets}, where limit and market orders interact to facilitate trading.
 
 \end{document}
