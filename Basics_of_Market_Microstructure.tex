@@ -145,4 +145,99 @@ S3 is an example of a marketable limit order. Like a market order, execution was
     \item \textbf{Spread:} \$0.05.
 \end{itemize}
 
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+\section{More Limit Order Book}
+
+\subsection{Introduction}
+In this section, we explore what happens when a marketable limit order cannot be fully executed due to price restrictions. We also examine how large market orders execute against the book, moving prices and creating \textbf{price impact}.
+
+\subsection{Expanding the Order Book Example}
+Let's advance the state of the order book from the previous section.
+\begin{itemize}
+    \item \textbf{Existing Orders:} S1 (Sell 150 @ \$40.00) and B1 (Buy 175 @ \$39.95).
+\end{itemize}
+We add the following new orders:
+\begin{itemize}
+    \item \textbf{Sell Side:}
+          \begin{itemize}
+              \item S4: 500 shares @ \$40.02
+              \item S5: 1,000 shares @ \$40.05
+              \item S6: 1,500 shares @ \$40.10
+          \end{itemize}
+    \item \textbf{Buy Side:}
+          \begin{itemize}
+              \item B3: 600 shares @ \$39.99
+              \item B4: 900 shares @ \$39.96
+          \end{itemize}
+\end{itemize}
+
+\textbf{Current State:}
+\begin{itemize}
+    \item \textbf{Best Ask:} \$40.00 (S1)
+    \item \textbf{Best Bid:} \$39.99 (B3)
+    \item \textbf{Bid-Ask Spread:} \$0.01
+\end{itemize}
+
+\textit{Note: In reality, market depth at a specific price is often the aggregate of multiple orders. For simplicity, we assume one order per price level here.}
+
+\subsection{Partial Execution of Marketable Limit Orders}
+A new buy order (\textbf{B5}) arrives for \textbf{400 shares} with a limit price of \textbf{\$40.00}.
+
+\textbf{Execution Logic:}
+\begin{enumerate}
+    \item B5 is willing to pay up to \$40.00.
+    \item The best ask is S1 (150 shares @ \$40.00).
+    \item \textbf{Trade:} 150 shares execute at \$40.00. S1 is filled.
+    \item \textbf{Remaining B5:} 250 shares ($400 - 150$) still need to be bought.
+    \item The next best ask is S4 at \$40.02. Since B5's limit is \$40.00, it cannot execute against S4.
+\end{enumerate}
+
+\textbf{Result:}
+The remaining 250 shares of B5 enter the book as a standing limit order at \$40.00.
+\begin{itemize}
+    \item \textbf{New Best Bid:} \$40.00 (B5, 250 shares).
+    \item \textbf{New Best Ask:} \$40.02 (S4, 500 shares).
+    \item \textbf{New Spread:} \$0.02.
+\end{itemize}
+
+\subsection{Large Market Orders and Price Impact}
+A large market order (\textbf{B6}) arrives to buy \textbf{2,000 shares}.
+\textit{(Note: Market orders have no price restrictions and execute immediately against available liquidity).}
+
+\textbf{Execution Logic:}
+B6 sweeps through the sell side of the book until filled:
+\begin{enumerate}
+    \item \textbf{Trade 1:} 500 shares @ \$40.02 (Clears S4).
+    \item \textbf{Trade 2:} 1,000 shares @ \$40.05 (Clears S5).
+    \item \textbf{Trade 3:} 500 shares @ \$40.10 (Partially fills S6).
+\end{enumerate}
+Total filled: $500 + 1,000 + 500 = 2,000$ shares.
+
+\textbf{Observations:}
+\begin{itemize}
+    \item \textbf{Price Uncertainty:} Although execution was guaranteed, the price varied. The average price paid is higher than the initial best ask.
+    \item \textbf{Price Impact:} The aggressive buying pressure moved the best ask price from \$40.02 to \$40.10. This change (\$0.08) represents the price impact of the order.
+\end{itemize}
+
+\textbf{Post-Trade State:}
+\begin{itemize}
+    \item \textbf{Best Ask:} \$40.10 (Remaining 1,000 shares of S6).
+    \item \textbf{Best Bid:} \$40.00 (B5).
+    \item \textbf{Spread:} \$0.10.
+\end{itemize}
+
+\subsection{Restoring Liquidity}
+A new sell order (\textbf{S7}) enters at \textbf{\$40.05} for 500 shares.
+\begin{itemize}
+    \item This improves the best ask from \$40.10 to \$40.05.
+    \item \textbf{New Spread:} \$0.05.
+\end{itemize}
+
+\subsection{Summary: Liquidity Provision vs. Consumption}
+\begin{itemize}
+    \item \textbf{Liquidity Providers:} Orders that sit in the book awaiting execution (e.g., S1, B5 remainder). They offer options for others to trade against.
+    \item \textbf{Liquidity Consumers:} Orders that execute immediately (e.g., B6). They remove liquidity from the book.
+\end{itemize}
+
 \end{document}
