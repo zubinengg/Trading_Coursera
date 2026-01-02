@@ -67,4 +67,82 @@ A \textbf{Limit Order} allows the trader to specify the price at which they are 
 \end{itemize}
 Most modern exchanges are \textbf{Electronic Limit Order Markets}, where limit and market orders interact to facilitate trading.
 
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+\section{Limit Order Book}
+
+\subsection{Introduction}
+In this section, we examine how limit orders enter the order book and await execution. We will define key concepts such as the best bid and ask prices, the bid-ask spread, and market depth. Furthermore, we will observe how market orders and marketable limit orders interact with the order book to generate trades.
+
+\subsection{Definitions}
+\begin{itemize}
+    \item \textbf{Best Ask Price:} The lowest price at which someone is willing to sell shares.
+    \item \textbf{Best Bid Price:} The highest price at which someone is willing to buy shares.
+    \item \textbf{Bid-Ask Spread:} The difference between the best ask price and the best bid price.
+    \item \textbf{Depth:} The number of shares available for trading at a specific price level.
+\end{itemize}
+
+\subsection{Order Book Dynamics: An Example}
+Consider the limit order book for a hypothetical stock, XYZ Incorporated. Initially, the order book is empty.
+
+\subsubsection{Step 1: Arrival of Passive Orders}
+A trader sends an order (\textbf{S1}) to sell 150 shares of XYZ with a limit price of \$40.
+\begin{itemize}
+    \item This order sits on the sell side.
+    \item \textbf{Current Best Ask:} \$40.
+\end{itemize}
+
+A few seconds later, a buy order (\textbf{B1}) for 225 shares at \$39.95 enters the market.
+\begin{itemize}
+    \item S1 is not willing to sell below \$40, and B1 is not willing to pay more than \$39.95. They do not execute.
+    \item \textbf{Current Best Bid:} \$39.95.
+    \item \textbf{Bid-Ask Spread:} $40 - 39.95 = \$0.05$.
+\end{itemize}
+
+These orders (S1 and B1) are referred to as \textbf{Standing} or \textbf{Passive Limit Orders}. They provide liquidity and face execution uncertainty (no guarantee they will be filled).
+
+\subsubsection{Step 2: Improving the Bid}
+Another buy order (\textbf{B2}) arrives for 500 shares at \$39.97.
+\begin{itemize}
+    \item B2 does not match S1 (\$40), but it offers a higher price than B1.
+    \item \textbf{New Best Bid:} \$39.97.
+    \item \textbf{New Spread:} $40 - 39.97 = \$0.03$.
+\end{itemize}
+
+\textbf{Current Depth:}
+\begin{itemize}
+    \item Depth at Best Ask (\$40): 150 shares.
+    \item Depth at Best Bid (\$39.97): 500 shares.
+\end{itemize}
+
+\subsubsection{Step 3: Market Order Execution}
+A market order (\textbf{S2}) to sell 300 shares arrives.
+\begin{itemize}
+    \item Market orders trade at the current best available prices.
+    \item S2 interacts with the best bid (B2 at \$39.97).
+    \item \textbf{Execution:} 300 shares trade at \$39.97.
+    \item \textbf{Result:} S2 is filled completely. B2 has 200 shares remaining ($500 - 300$).
+    \item The Best Bid price remains \$39.97, but depth has decreased to 200.
+\end{itemize}
+
+\subsubsection{Step 4: Marketable Limit Order}
+A sell order (\textbf{S3}) arrives for 250 shares with a limit price of \$39.95.
+\begin{itemize}
+    \item S3 is willing to sell at \$39.95 or higher. The best bid is \$39.97 (higher than limit), so it executes immediately.
+    \item \textbf{Trade 1:} 200 shares execute against the remainder of B2 at \$39.97. (B2 is now filled).
+    \item S3 still needs to sell 50 shares. The next best bid is B1 at \$39.95.
+    \item \textbf{Trade 2:} 50 shares execute against B1 at \$39.95.
+    \item \textbf{Result:} S3 is filled. B1 has 175 shares remaining ($225 - 50$).
+\end{itemize}
+
+\textbf{Marketable Limit Orders (Active Orders):}
+S3 is an example of a marketable limit order. Like a market order, execution was immediate (no uncertainty). However, price was uncertain (executed at multiple prices: \$39.97 and \$39.95), though never worse than the limit price.
+
+\subsubsection{Final State}
+\begin{itemize}
+    \item \textbf{Best Ask:} \$40 (S1, 150 shares).
+    \item \textbf{Best Bid:} \$39.95 (Remainder of B1, 175 shares).
+    \item \textbf{Spread:} \$0.05.
+\end{itemize}
+
 \end{document}
