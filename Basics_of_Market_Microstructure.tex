@@ -305,4 +305,52 @@ Orders placed at prices worse than the current best quotes.
     \item \textbf{Liquidity Supplying (Providing):} Orders that sit on the order book awaiting execution (Categories 4, 5, and 6). They provide the liquidity that others demand.
 \end{itemize}
 
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+\section{Stop-Loss Orders}
+
+\subsection{Introduction}
+In this section, we discuss stop-loss orders and their purpose. These orders, also known as \textbf{stop orders} or \textbf{stop market orders}, are primarily used to prevent losses on existing positions.
+
+\subsection{How Stop-Loss Orders Work}
+\textbf{Example:}
+Suppose you bought 100 shares of XYZ Incorporated at \$40 per share. You want to limit your potential loss to 10\%. You place a stop-loss order to sell 100 shares with a \textbf{stop price} (or \textbf{trigger price}) of \$36.
+
+\begin{itemize}
+    \item \textbf{Visibility:} Stop-loss orders are held separately and do not appear in the public limit order book.
+    \item \textbf{Triggering:} As long as trades occur above \$36, the order remains dormant. If a trade executes at \$36 or below, the stop order is triggered.
+    \item \textbf{Execution:} Once triggered, it becomes a \textbf{regular market order} to sell. It executes against available orders in the book.
+    \item \textbf{Price Uncertainty:} The actual execution price may be at, below, or even above \$36, depending on market volatility in the split second between triggering and execution.
+\end{itemize}
+
+\subsection{Trigger Price vs. Limit Price}
+It is crucial to distinguish between a limit order and a stop order with the same price.
+\begin{itemize}
+    \item \textbf{Limit Sell Order (\$36):} Guarantees you will not sell for less than \$36. It is an instruction to sell at \$36 or higher.
+    \item \textbf{Stop-Loss Sell Order (\$36):} Activates only when the market price drops to \$36. It does not guarantee a minimum price; it guarantees entry into the market to exit the position.
+\end{itemize}
+
+\subsection{Selecting the Trigger Price}
+The trigger price should be chosen relative to the stock's volatility.
+\begin{itemize}
+    \item \textbf{Scenario:} You set a trigger 10\% below purchase price, but the stock has a daily volatility of 15\%.
+    \item \textbf{Risk:} The order is likely to be triggered by normal daily fluctuations rather than a sustained downturn.
+    \item \textbf{Best Practice:} Stop-loss orders should protect against sustained adverse price movements, not regular noise.
+\end{itemize}
+
+\subsection{Stop-Limit Orders}
+To mitigate price uncertainty, traders can use \textbf{Stop-Limit Orders}.
+\begin{itemize}
+    \item \textbf{Mechanism:} When the trigger price is hit, the order becomes a \textbf{limit order} rather than a market order.
+    \item \textbf{Parameters:} You must specify both a \textbf{Trigger Price} and a \textbf{Limit Price}.
+    \item \textbf{Trade-off:}
+          \begin{itemize}
+              \item \textbf{Stop-Loss Market Order:} Guaranteed execution, uncertain price.
+              \item \textbf{Stop-Limit Order:} Controlled price, uncertain execution. In a fast-crashing market, the price may drop below your limit before you get filled, leaving you with the position.
+          \end{itemize}
+\end{itemize}
+
+\subsection{Stop-Loss for Short Selling}
+While the examples above assume a long position (buy then sell), stop-loss orders are also used for short positions (sell then buy). If you sell shares expecting a drop, you can place a stop-loss buy order to protect against price increases.
+
 \end{document}
