@@ -240,4 +240,69 @@ A new sell order (\textbf{S7}) enters at \textbf{\$40.05} for 500 shares.
     \item \textbf{Liquidity Consumers:} Orders that execute immediately (e.g., B6). They remove liquidity from the book.
 \end{itemize}
 
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+\section{Limit Price Placement}
+
+\subsection{Introduction}
+Limit price placement refers to where the limit price of an order lies relative to the current best quotes (Best Bid and Best Ask). This concept is central to defining \textbf{Order Aggressiveness}.
+
+\textbf{Baseline for Examples:}
+\begin{itemize}
+    \item \textbf{Best Ask:} \$40.00 (150 shares).
+    \item \textbf{Best Bid:} \$39.95 (235 shares).
+\end{itemize}
+
+\subsection{Hierarchy of Order Aggressiveness}
+Aggressiveness depends on how far the limit price is from the best quotes.
+
+\subsubsection{1. Market Orders (Most Aggressive)}
+Market orders have no price restrictions.
+\begin{itemize}
+    \item A market sell order can be viewed as a limit order with a price of \$0.
+    \item A market buy order can be viewed as a limit order with a price of infinity ($\infty$).
+\end{itemize}
+
+\subsubsection{2. Marketable Limit Orders (Instant Full Execution)}
+These are limit orders that execute immediately and completely because their prices cross the spread significantly.
+\begin{itemize}
+    \item \textbf{Buy Order:} Limit Price $\ge$ Best Ask.
+    \item \textbf{Sell Order:} Limit Price $\le$ Best Bid.
+\end{itemize}
+\textbf{Aggressiveness Logic:} The further the price crosses the spread, the more aggressive it is. A sell order at \$39.25 is more aggressive than one at \$39.50. A buy order at \$40.40 is more aggressive than one at \$40.20.
+
+\subsubsection{3. Marketable Limit Orders (Partial Execution)}
+Orders that cross the spread but have a size larger than the available depth at the best price.
+\begin{itemize}
+    \item \textbf{Example:} Sell 500 shares at \$39.95.
+    \item \textbf{Result:} Since the best bid depth is only 235 shares, 235 shares execute immediately. The remaining 265 shares sit on the book (or execute against lower bids if available).
+\end{itemize}
+
+\subsubsection{4. Quote Improving Orders}
+Orders that do not execute immediately but improve the Best Bid or Best Ask. They narrow the Bid-Ask Spread.
+\begin{itemize}
+    \item \textbf{Example Sell:} Limit price \$39.99 (Improves Best Ask from \$40.00).
+    \item \textbf{Example Buy:} Limit price \$39.97 (Improves Best Bid from \$39.95).
+\end{itemize}
+
+\subsubsection{5. Quote Matching Orders}
+Orders that simply add depth to the existing best quotes without changing the price.
+\begin{itemize}
+    \item \textbf{Example:} Buy 50 shares at \$39.95.
+    \item \textbf{Result:} Best Bid remains \$39.95, but depth increases from 235 to 285 shares.
+\end{itemize}
+
+\subsubsection{6. Behind the Quote Orders (Least Aggressive)}
+Orders placed at prices worse than the current best quotes.
+\begin{itemize}
+    \item \textbf{Example:} Buy 500 shares at \$39.90.
+    \item \textbf{Result:} The order sits in the book behind the best bid, awaiting execution.
+\end{itemize}
+
+\subsection{Liquidity Demanding vs. Liquidity Supplying}
+\begin{itemize}
+    \item \textbf{Liquidity Demanding (Consuming):} Orders that result in at least partial execution upon submission (Categories 1, 2, and 3). They trade against existing orders.
+    \item \textbf{Liquidity Supplying (Providing):} Orders that sit on the order book awaiting execution (Categories 4, 5, and 6). They provide the liquidity that others demand.
+\end{itemize}
+
 \end{document}
