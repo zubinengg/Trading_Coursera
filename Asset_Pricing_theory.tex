@@ -57,6 +57,13 @@ You buy a stock for \$50 ($P_0$). After one year, the price is \$55 ($P_1$) and 
     R = \frac{55 - 50 + 1}{50} = \frac{6}{50} = 0.12 \text{ or } 12\%
 \]
 
+\subsubsection{Annualized Return}
+If the holding period is not exactly one year, we often annualize the return to make it comparable.
+\[
+    R_{annual} = (1 + R_{period})^{1/n} - 1
+\]
+Where $n$ is the number of years. For example, if you earned 12\% over 6 months ($n=0.5$), the annualized return is $(1.12)^{1/0.5} - 1 \approx 25.4\%$.
+
 \subsection{Expected Return and Risk}
 In reality, future prices ($P_1$) and dividends ($D_1$) are unknown. Therefore, the return is a \textbf{random variable} characterized by possible outcomes and their probabilities.
 
@@ -118,6 +125,13 @@ Investing in a single stock is risky; if the company fails, the investor loses t
 \begin{itemize}
     \item \textbf{Diversification:} The strategy of investing in multiple assets to spread risk.
     \item \textbf{Mechanism:} In a portfolio, the poor performance of some stocks is likely to be offset by the good performance of others. Therefore, the risk (variance) of a portfolio is typically lower than the risk of a single stock.
+\end{itemize}
+
+\textbf{Role of Correlation:}
+Diversification works best when assets are \textbf{uncorrelated} (correlation $\rho < 1$).
+\begin{itemize}
+    \item If two stocks move perfectly together ($\rho = +1$), combining them does not reduce risk.
+    \item If they move independently ($\rho = 0$) or oppositely ($\rho = -1$), risk is significantly reduced.
 \end{itemize}
 
 \subsection{Types of Risk}
@@ -196,6 +210,17 @@ Beta is calculated as the covariance between the risky asset's returns and the m
     \item $\beta = 0$: The risk-free asset has a beta of 0.
     \item $\beta < 0$: A negative beta means the asset's return moves in the opposite direction to the market's return.
 \end{itemize}
+
+\subsubsection{Real-World Example: Apple Inc.}
+Suppose we want to calculate the expected return for Apple (AAPL) using CAPM.
+\begin{itemize}
+    \item \textbf{Risk-Free Rate ($r_f$):} 2.0\% (Yield on 10-year US Treasury).
+    \item \textbf{Market Return ($E[r_m]$):} 8.0\% (Historical average of S\&P 500).
+    \item \textbf{Beta ($\beta$):} 1.2 (Apple is slightly more volatile than the market).
+\end{itemize}
+\[
+    E[R_{AAPL}] = 2.0\% + 1.2 (8.0\% - 2.0\%) = 2.0\% + 7.2\% = 9.2\%
+\]
 
 \noindent\rule{\linewidth}{1pt}
 %-----------------------------------------------------------------
@@ -339,6 +364,13 @@ We can extend the single index model to a model with $K$ factors.
 Each $F_j$ represents the unanticipated shock to risk factor $j$, and $\beta_{ij}$ is the sensitivity to that factor.
 
 \subsubsection{Two-Factor Example}
+\textbf{Industry Sensitivity:}
+Different industries have different sensitivities ($\beta$) to factors.
+\begin{itemize}
+    \item \textbf{Airline Company:} High sensitivity to \textbf{Oil Prices} (Factor 1) and \textbf{GDP Growth} (Factor 2).
+    \item \textbf{Tech Company:} Low sensitivity to Oil Prices, but high sensitivity to \textbf{Interest Rates} (Factor 3).
+\end{itemize}
+
 Consider a model with two risk factors: \textbf{GDP Growth} and \textbf{Inflation}.
 \[
     r_M = E[r_M] + \beta_{M,1}(GDP_{act} - GDP_{exp}) + \beta_{M,2}(Inf_{act} - Inf_{exp}) + e_M
@@ -616,5 +648,60 @@ APT relies on the assumption that the benchmark assets are correctly priced. If 
     \item APT is about relative pricing. It ensures internal consistency but does not guarantee that the entire market is priced correctly in absolute terms.
     \item Depending on the reference assets, implied parameters ($r_f, RP$) can be unrealistic (e.g., negative risk-free rates).
 \end{itemize}
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+
+\section{Commonly Used Risk Factors}
+
+\subsection{Learning Outcomes}
+After this section, you will be able to:
+\begin{itemize}
+    \item Describe commonly used risk factors.
+    \item Briefly explain why they work.
+\end{itemize}
+
+\subsection{The Fama-French Three Factor Model (1993)}
+While APT allows for multiple factors, it does not specify what they are. Eugene Fama and Ken French proposed three specific risk factors that have become the standard in empirical finance.
+
+\subsubsection{The Three Factors}
+\begin{enumerate}
+    \item \textbf{RMRF (Market Risk Premium):} The return on a market index minus the risk-free rate ($R_m - R_f$). This captures the systematic risk of the market originating from macroeconomic factors.
+    \item \textbf{SMB (Small Minus Big):} The return on a portfolio of small companies (low market capitalization) minus the return on a portfolio of big companies (high market capitalization).
+    \item \textbf{HML (High Minus Low):} The return on a portfolio of firms with high book-to-market ratios minus a portfolio of firms with low book-to-market ratios.
+\end{enumerate}
+
+\subsubsection{Economic Rationale}
+\begin{itemize}
+    \item \textbf{SMB:} Small firms are likely to be more sensitive to sudden changes in business conditions than big firms.
+    \item \textbf{HML:} Firms with high book-to-market ratios are often in financial distress or are "value" stocks, while low ratios indicate "growth" stocks with high future opportunities.
+\end{itemize}
+
+\subsubsection{Understanding Book-to-Market Ratio}
+\[
+    \text{Book-to-Market} = \frac{\text{Book Value of Equity}}{\text{Market Value of Equity}}
+\]
+\begin{itemize}
+    \item \textbf{Low Ratio (Growth):} Reflects high growth opportunities. The market capitalizes these future opportunities, leading to a high market value relative to book value.
+    \item \textbf{High Ratio (Value/Distress):} Reflects potential bad financial health or undervaluation. The market value is low relative to book value.
+\end{itemize}
+
+\subsection{Empirical Nature of the Model}
+Unlike CAPM or APT which are theoretical, the Fama-French model is \textbf{empirical}.
+\begin{itemize}
+    \item \textbf{Justification:} SMB and HML are not obvious risk factors, but they capture sensitivity to unknown macroeconomic risks.
+    \item \textbf{Performance:} The model has worked well for the last 90 years across global markets.
+    \item \textbf{Limitation:} There is no guarantee it will continue to work in the future.
+\end{itemize}
+
+\subsection{Carhart Four Factor Model (1997)}
+Mark Carhart extended the model by adding a fourth factor based on price persistence.
+\begin{itemize}
+    \item \textbf{MOM (Momentum):} The return on a portfolio of recent "winners" (companies that performed well in the recent past) minus a portfolio of recent "losers".
+    \item \textbf{Observation:} Recent winners tend to continue performing well, while losers continue to perform poorly.
+\end{itemize}
+
+\subsection{Summary}
+Together, these four factors (RMRF, SMB, HML, MOM) historically explain over \textbf{80\%} of the variation in stock returns.
 
 \end{document}
