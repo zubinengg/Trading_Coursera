@@ -670,4 +670,131 @@ Other benchmarks include:
 
 \noindent\rule{\linewidth}{1pt}
 %-----------------------------------------------------------------
+
+\section{Implicit Transaction Costs}
+
+\subsection{Introduction}
+Last time we discussed that it is important to account for transaction costs as they reduce the returns investors earn. We divided transaction costs into explicit and implicit costs. Implicit costs depend on the benchmark used. We look at various benchmarks and how to calculate them. In this section, we will illustrate the calculations of these benchmarks and implicit transaction costs with an example.
+
+\subsection{Example Scenario}
+Let's look at an example to understand the five benchmarks method.
+\begin{itemize}
+    \item \textbf{9:30 AM (Market Open):} 10,000 shares of XYZ stock trade at \$45.66 a share.
+    \item \textbf{10:30 AM (Decision Time):} You decide to place an order to buy 1,200 shares of XYZ.
+          \begin{itemize}
+              \item Best Bid: \$46.05.
+              \item Best Ask: \$46.08.
+              \item \textbf{Midpoint ($M_d$):} \$46.065. (This is the benchmark for the implementation shortfall method).
+          \end{itemize}
+    \item \textbf{11:08 AM:} Another trader's order executes for 650 shares at \$46.20. (Best Bid: \$46.20, Best Ask: \$46.22).
+    \item \textbf{11:46 AM:} \textbf{460 shares of your order} get executed at the price of \textbf{\$46.05}.
+    \item \textbf{2:16 PM:} Another trader's order for 2,000 shares is executed at \$46.15.
+    \item \textbf{3:45 PM:} Another \textbf{530 shares of your order} are executed at \textbf{\$46.03}.
+          \begin{itemize}
+              \item Best Bid: \$45.99.
+              \item Best Ask: \$46.03.
+          \end{itemize}
+    \item \textbf{4:00 PM (Market Close):} Best Bid: \$45.91, Best Ask: \$45.94.
+\end{itemize}
+
+For simplicity, we'll assume that there are no other transactions in XYZ stock during the day.
+
+\subsection{Benchmark Calculations}
+The implicit transaction cost is the summation across all trades of trade size times the trade direction times the difference between the trade price and benchmark.
+\[
+    \text{Cost} = \sum (\text{Size} \times \text{Direction} \times (\text{Price} - \text{Benchmark}))
+\]
+In this case, since you are buying, the trade direction is $+1$ in all our calculations.
+
+\subsubsection{1. Time-Weighted Average Price (TWAP)}
+TWAP is a simple average of the transaction prices of the day.
+\begin{itemize}
+    \item Transactions were executed at: 45.66, 46.20, 46.05, 46.15, and 46.03.
+\end{itemize}
+\[
+    \text{TWAP} = \frac{45.66 + 46.20 + 46.05 + 46.15 + 46.03}{5} = 46.018
+\]
+\textbf{Transaction Cost:}
+\[
+    \text{Cost} = 460(46.05 - 46.018) + 530(46.03 - 46.018)
+\]
+\[
+    \text{Cost} = 460(0.032) + 530(0.012) = 14.72 + 6.36 = \$21.08
+\]
+
+\subsubsection{2. Volume-Weighted Average Price (VWAP)}
+VWAP is the trade-size weighted average price for the day.
+\begin{itemize}
+    \item Trade 1: 10,000 shares @ 45.66
+    \item Trade 2: 650 shares @ 46.20
+    \item Trade 3: 460 shares @ 46.05
+    \item Trade 4: 2,000 shares @ 46.15
+    \item Trade 5: 530 shares @ 46.03
+\end{itemize}
+\[
+    \text{VWAP} = \frac{(10000 \times 45.66) + (650 \times 46.20) + (460 \times 46.05) + (2000 \times 46.15) + (530 \times 46.03)}{10000 + 650 + 460 + 2000 + 530}
+\]
+\[
+    \text{VWAP} \approx 45.785
+\]
+\textbf{Transaction Cost:}
+\[
+    \text{Cost} = 460(46.05 - 45.785) + 530(46.03 - 45.785) \approx \$251.64
+\]
+Since the opening price was a large trade at a very low price, VWAP is far lower than TWAP, which leads to a significantly higher implicit transaction cost when we use VWAP as a benchmark.
+
+\subsubsection{3. Implementation Shortfall (Decision-Time Midpoint)}
+The benchmark is the bid-ask midpoint at decision time ($M_d$).
+\begin{itemize}
+    \item Decision Time: 10:30 AM.
+    \item Benchmark ($M_d$): 46.065.
+\end{itemize}
+\textbf{Execution Cost:}
+\[
+    \text{Exec Cost} = 460(46.05 - 46.065) + 530(46.03 - 46.065) = -\$25.45
+\]
+Interestingly, your transaction cost now is negative as both your transactions are at prices below the decision time midpoint.
+
+\textbf{Opportunity Cost:}
+This method also captures the opportunity cost of not executing the order completely.
+\begin{itemize}
+    \item Intended Buy: 1,200 shares. Executed: 990 shares. Unexecuted: 210 shares.
+    \item Closing Price ($P_N$): 46.03.
+\end{itemize}
+\[
+    \text{Opp Cost} = 210(46.03 - 46.065) = -\$7.35
+\]
+\textbf{Total Implicit Cost:}
+\[
+    \text{Total Cost} = -25.45 + (-7.35) = -\$32.80
+\]
+In this case, prices decreased after you decided to buy shares, and hence the transaction costs are negative. The delayed execution worked in your favor and helped you save money. If prices increased, you would have incurred a cost.
+
+\subsubsection{4. Closing Price}
+The benchmark is the price of the last transaction of the day (46.03).
+\textbf{Transaction Cost:}
+\[
+    \text{Cost} = 460(46.05 - 46.03) + 530(46.03 - 46.03) = \$9.20
+\]
+Here, prices decrease towards the end of the day, and hence you buy at prices higher than the benchmark.
+
+\subsubsection{5. Effective Spread (Midpoint at Trade Time)}
+Since you had two transactions, we have to determine the benchmark separately for each transaction.
+\begin{itemize}
+    \item Trade 1 (11:46 AM): Midpoint was 46.035.
+    \item Trade 2 (3:45 PM): Midpoint was 46.01.
+\end{itemize}
+\textbf{Transaction Cost (One-Way Effective Spread):}
+\[
+    \text{Cost} = 460(46.05 - 46.035) + 530(46.03 - 46.01) = \$17.50
+\]
+The effective spread will usually be positive as traders will buy at prices above the bid-ask midpoint at the time of trade and sell at prices below the midpoint.
+
+\subsection{Conclusion}
+In our example, the various benchmarks yielded very different values of transaction costs. There isn't one correct or wrong value. Since the benchmarks are different, each will yield a different value. These will usually be affected by how prices move during the day.
+\begin{itemize}
+    \item On days when prices move favorably, your transaction costs will be negative (profit).
+    \item On days when prices move against you, transaction costs will be positive (implicit cost).
+\end{itemize}
+Next time, we will take a closer look at the implementation shortfall method of calculating implicit transaction costs. This will further help us understand the cost incurred while trading.
 \end{document}
