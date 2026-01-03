@@ -600,16 +600,57 @@ VWAP is the trade-size weighted average transaction price. The price of each tra
 The benchmark is the midpoint of the bid and ask prices at the time the investor decides to trade ($m_d$, decision time). In this method, the transaction cost captures both the execution cost and an \textbf{opportunity cost} for the part of the order that is not executed.
 
 \[
-    \text{Total Cost} = \underbrace{\sum x_j d_j (p_j - m_d)}_{\text{Execution Cost}} + \underbrace{(X - \sum x_j) d (p_N - m_d)}_{\text{Opportunity Cost}}
+    \text{Total Cost} = \underbrace{\sum_{j} x_j d_j (p_j - m_d)}_{\text{Execution Cost}} + \underbrace{(X - \sum_{j} x_j) d (p_N - m_d)}_{\text{Opportunity Cost}}
 \]
 Where:
 \begin{itemize}
-    \item $X$: Total order size (capital).
-    \item $\sum x_j$: Total number of shares actually bought or sold.
-    \item $p_N$: Last price of the day.
+    \item $X$: Total order size (number of shares intended to trade).
+    \item $x_j$: Size of trade $j$.
+    \item $d_j$: Direction of trade (+1 for Buy, -1 for Sell).
+    \item $p_j$: Trade price of trade $j$.
     \item $m_d$: Decision-time bid-ask midpoint.
+    \item $p_N$: Last price of the day (Closing Price).
 \end{itemize}
-The difference between $X$ and $\sum x_j$ represents the unexecuted portion of the order. The non-execution results in an opportunity cost due to potentially lost profits (captured by $p_N - m_d$). For a buy order, it assumes you could have bought at $m_d$ and sold at $p_N$. If prices increase, this is lost profit; if prices decrease, it is losses avoided.
+
+The first term represents the \textbf{Execution Cost}: the difference between the actual trade prices and the decision-time benchmark for the shares that were actually executed.
+
+The second term represents the \textbf{Opportunity Cost}: the cost associated with the unexecuted portion of the order ($X - \sum x_j$). This non-execution results in potentially lost profits (or losses avoided) captured by the difference between the closing price ($p_N$) and the decision-time benchmark ($m_d$).
+\begin{itemize}
+    \item For a buy order ($d=1$): If prices increase ($p_N > m_d$), the trader missed out on buying at $m_d$ and holding until $p_N$, representing a lost profit.
+    \item For a sell order ($d=-1$): If prices decrease ($p_N < m_d$), the trader missed out on selling at $m_d$ before the drop, representing a loss.
+\end{itemize}
+
+\textbf{Numerical Example:}
+Suppose a trader decides to buy $X = 1,000$ shares of a stock when the bid-ask midpoint is $m_d = \$50.00$.
+\begin{itemize}
+    \item \textbf{Trade 1:} Buys 600 shares at $p_1 = \$50.10$.
+    \item \textbf{Trade 2:} Buys 100 shares at $p_2 = \$50.20$.
+    \item \textbf{Unexecuted:} The remaining 300 shares are not bought by the end of the day.
+    \item \textbf{Closing Price:} $p_N = \$50.50$.
+\end{itemize}
+
+\textbf{Calculation:}
+\begin{enumerate}
+    \item \textbf{Execution Cost:}
+          \[
+              (600 \times 1 \times (50.10 - 50.00)) + (100 \times 1 \times (50.20 - 50.00))
+          \]
+          \[
+              = (600 \times 0.10) + (100 \times 0.20) = 60 + 20 = \$80
+          \]
+    \item \textbf{Opportunity Cost:}
+          \[
+              (1,000 - 700) \times 1 \times (50.50 - 50.00)
+          \]
+          \[
+              = 300 \times 0.50 = \$150
+          \]
+    \item \textbf{Total Implementation Shortfall:}
+          \[
+              \$80 + \$150 = \$230
+          \]
+\end{enumerate}
+The total cost of this trading strategy, including the missed opportunity to buy the remaining 300 shares before the price rose to \$50.50, is \$230.
 
 \subsubsection{4. Closing Price}
 Typically the price of the last transaction of the day.
