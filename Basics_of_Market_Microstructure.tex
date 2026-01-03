@@ -529,4 +529,94 @@ Resiliency measures how quickly prices revert to previous levels after a large t
 \subsection{Conclusion}
 A liquid market allows traders to execute large orders with minimal price impact almost instantaneously. Even when prices move due to large orders, a liquid market is characterized by quick price reversion. Next, we will discuss how to measure transaction costs and the various benchmarks used.
 
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+\section{Transaction Costs}
+
+\subsection{Introduction}
+Last time we discussed the idea of liquidity and its various dimensions. Even in the most liquid of markets, investors still have to bear transaction costs. This can't be avoided. These costs reduce the returns a person earns from their investments. To increase returns net of transaction costs, it is critical to understand what the transaction costs are, how to measure them, and then attempt to trade in a manner that reduces these costs. In this section, we will focus on discussing what the transaction costs are and how to measure them.
+
+Transaction costs help investors evaluate how well they and their brokers have executed their trading strategies. They are also used by exchanges, brokers, and regulators. Exchanges are interested in calculating transaction costs to determine how liquid their market is and use this as part of their marketing strategies. They also help brokers evaluate their execution performance, identify better execution strategies, and minimize transaction costs. Regulators are interested in calculating transaction costs as they help to monitor the performance of exchanges and change policies accordingly to further reduce transaction costs on exchanges.
+
+\subsection{Measuring Transaction Costs}
+How do we measure transaction costs? It is the difference between the value of a paper portfolio and the value of a real portfolio. Say that you decide to put together a portfolio of stocks worth \$100,000. The paper portfolio will assume that you paid the decision-time midpoint of the best bid and ask prices. However, in reality, you have to pay the bid-ask spread, brokerage commissions, price impact, fees, taxes, etc. All of these will affect the actual return you realize from your investment portfolio.
+
+\subsection{Components of Transaction Costs}
+There are two components to transaction costs: explicit costs and implicit costs.
+
+\subsubsection{Explicit Costs}
+Explicit costs are actual out-of-pocket expenses incurred. They include brokerage commissions and any taxes and fees paid for every transaction. These are easy to identify and measure and need to be simply added up.
+
+\subsubsection{Implicit Costs}
+Implicit costs are those that are not obvious but still imposed on traders. These include spreads, market impact cost, opportunity cost, delay cost, etc. Implicit costs are more difficult to identify and quantify. For example, if you want to measure the price impact of a trade, we must have some estimate of what the price would have been had the trade not taken place. Unfortunately, we can't observe that.
+
+\subsection{Calculating Implicit Costs}
+There are a number of ways to measure these implicit costs. The only difference among these different ways is the benchmark used. One-way implicit transaction costs have the following general form:
+
+\[
+    \text{Implicit Cost} = \sum_{j} x_j d_j (p_j - b_j)
+\]
+
+Where:
+\begin{itemize}
+    \item $x_j$: Size of trade $j$.
+    \item $d_j$: Direction of trade ($+1$ for buy, $-1$ for sell).
+    \item $p_j$: Trade price.
+    \item $b_j$: Benchmark price at the time of trade.
+\end{itemize}
+
+Essentially, these implicit costs measure how large a premium over the benchmark a trader is willing to pay while buying and how large a discount relative to the benchmark a trader is willing to accept while selling. The benchmark is assumed to represent the true value of the stock. A round-trip implicit transaction cost is two times the one-way implicit transaction cost.
+
+\subsection{Benchmarks}
+There are five common benchmarks used to compute implicit transaction costs.
+
+\subsubsection{Time-Weighted Average Price (TWAP)}
+For a stock with $N$ trades in a given day, TWAP is the average transaction price across the $N$ trades.
+
+\subsubsection{Volume-Weighted Average Price (VWAP)}
+VWAP is the trade-size weighted average transaction price. The price of each transaction is multiplied by its size and then divided by the total volume traded for the day. This is summed up across all trades of the day.
+
+\subsubsection{Implementation Shortfall (Decision-Time Midpoint)}
+The third benchmark is the midpoint of the bid and ask prices at the time the investor decides to trade (decision time). In this case, in addition to the difference between the trade price and the benchmark, the transaction cost also captures an opportunity cost for the part of the order that is not executed. This method is called the \textbf{Implementation Shortfall} method.
+
+For the executed portion:
+\[
+    \text{Execution Cost} = \sum x_j d_j (p_j - m_d)
+\]
+Where $m_d$ is the decision-time bid-ask midpoint.
+
+The opportunity cost is computed as:
+\[
+    \text{Opportunity Cost} = (X - \sum x_j) d (p_N - m_d)
+\]
+Where:
+\begin{itemize}
+    \item $X$: Total order size.
+    \item $\sum x_j$: Total number of shares bought or sold.
+    \item $d$: Order direction.
+    \item $p_N$: Last price of the day.
+\end{itemize}
+
+The difference between $X$ and $\sum x_j$ represents the part of the order that isn't executed by the end of the day. This non-execution results in an opportunity cost due to potentially lost profits. For a buy order, it assumes that you could have bought the shares at $m_d$ and sold them at $p_N$ at the end of the day. As prices increase during the day, this is lost profit; on the other hand, if prices decrease during the day, this difference is losses avoided. The implementation shortfall method adds this opportunity cost to the implicit transaction cost calculated using the decision-time bid-ask price midpoint as the benchmark.
+
+\subsubsection{Other Benchmarks}
+\begin{itemize}
+    \item \textbf{Closing Price:} Typically the price of the last transaction of the day.
+    \item \textbf{Midpoint at Time of Trade:} The midpoint of the bid and ask prices at the time of the trade.
+\end{itemize}
+
+There are a few other benchmarks that traders use which we won't focus on:
+\begin{itemize}
+    \item Previous day's closing price.
+    \item Current day's opening price.
+    \item Next day's closing price.
+    \item Bid-ask price midpoint at the time the order arrives in the market.
+    \item Average of the day's open, high, low, and closing prices.
+\end{itemize}
+
+Next time we will look at a detailed example that will illustrate how to compute these benchmarks and then calculate implicit transaction costs.
+
+
+\noindent\rule{\linewidth}{1pt}
+
 \end{document}
