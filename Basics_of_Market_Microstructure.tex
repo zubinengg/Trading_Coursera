@@ -353,4 +353,137 @@ To mitigate price uncertainty, traders can use \textbf{Stop-Limit Orders}.
 \subsection{Stop-Loss for Short Selling}
 While the examples above assume a long position (buy then sell), stop-loss orders are also used for short positions (sell then buy). If you sell shares expecting a drop, you can place a stop-loss buy order to protect against price increases.
 
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+\section{Short-Selling}
+
+\subsection{Introduction}
+In this section, we discuss what short selling is and how to use a stop-loss order to restrict losses after short selling shares. Previously, we assumed buying shares and restricting losses with a stop-loss sell order. The opposite is also possible: selling on the information that the stock price is going to drop.
+
+\subsection{The Mechanics of Short Selling}
+Short selling essentially means selling something that you do not own.
+\begin{itemize}
+    \item \textbf{Process:} You borrow shares from someone and sell them with a promise to return the borrowed shares at a future date.
+    \item \textbf{Analogy:} This is similar to taking a loan. In a loan, you borrow cash and promise to pay it back. In short selling, the loan is for shares, not cash.
+\end{itemize}
+
+\subsection{Regulations and Risks}
+\begin{itemize}
+    \item \textbf{Regulations:} Various countries have regulations on how borrowing shares may be done. Some countries may ban it completely, while others may ban it temporarily for various reasons. Traders must check local exchange rules.
+    \item \textbf{Risk Warning:} Short selling is extremely risky because stock prices generally increase over longer horizons. It is not advisable to hold such positions over long periods.
+\end{itemize}
+
+\subsection{Example: Shorting XYZ}
+Suppose you expect the share price of XYZ to decrease.
+\begin{itemize}
+    \item \textbf{Action:} You short sell 100 shares at \$40 per share.
+    \item \textbf{Scenario 1 (Price Drops):} If your information is right, prices decrease. You buy the 100 shares back at a lower price and return the borrowed shares.
+    \item \textbf{Scenario 2 (Price Increases):} If you are wrong, prices increase. You still have an obligation to return the borrowed shares, so you must buy them back at higher prices, resulting in losses.
+\end{itemize}
+
+\subsection{Using Stop-Loss Orders}
+To prevent large losses on account of price increases, you can enter a stop-loss order.
+\begin{itemize}
+    \item \textbf{Setup:} You enter a stop-loss order to buy 100 shares at \$44 (willing to lose around 10\%).
+    \item \textbf{Trigger:} As long as the stock trades below \$44, the order is dormant. The moment the stock trades at \$44 or higher, the stop-loss order is triggered.
+    \item \textbf{Execution:} Upon triggering, it converts to a \textbf{market order} and tries to execute against limit orders in the order book.
+\end{itemize}
+
+\subsection{Price Uncertainty and Stop-Limit Orders}
+A stop-loss order at \$44 does not guarantee purchases at \$44 alone. The actual price may be greater than or less than \$44, especially when prices are changing rapidly.
+\begin{itemize}
+    \item \textbf{Stop-Limit Option:} To reduce price uncertainty, you could place a stop-loss order with a limit price. When triggered, this sends a limit order to the market.
+    \item \textbf{Common Practice:} It is common to place stop-loss market orders rather than stop-loss limit orders because there is urgency in getting the order executed.
+\end{itemize}
+
+\subsection{Conclusion}
+We will continue talking about different types of orders and additional instructions traders may attach to an order in the next section.
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+\section{Other Order Instructions}
+
+\subsection{Introduction}
+Over the last few sections, we covered common order types like market, limit, and stop-loss orders. In this section, we cover additional instructions a trader may add to market and limit orders. These instructions are broadly classified into validity, quantity, and display instructions. While not as common as standard orders, they serve specific purposes.
+
+\subsection{Validity Instructions}
+Validity instructions define the time horizon for which an order remains active.
+
+\subsubsection{Day Orders}
+\begin{itemize}
+    \item Valid only for the day on which they are placed.
+    \item If unexecuted by the end of the day, they are automatically cancelled.
+    \item Typically applies to limit orders (market orders usually execute immediately).
+\end{itemize}
+
+\subsubsection{Good 'Til Orders}
+Orders valid until a specific future event or date.
+\begin{itemize}
+    \item \textbf{Good 'Til Cancel (GTC):} Valid until executed or manually cancelled by the trader. Can be valid for less than or longer than a day.
+    \item \textbf{Good 'Til Week (GTW):} Valid for the week submitted; cancelled if unexecuted by the end of the week.
+    \item \textbf{Good 'Til Month (GTM):} Valid for the month submitted; cancelled if unexecuted by the end of the month.
+    \item \textbf{Good 'Til Day (GTD):} Valid until a specified calendar date.
+    \item \textbf{Good 'Til Expiration (GTE):} Used in derivative markets. Valid until the derivative contract expires.
+\end{itemize}
+
+\subsubsection{Time-Specific Validity}
+\begin{itemize}
+    \item \textbf{Good After Time/Date (GAT):} Orders that become active only after a specified time or date.
+    \item \textbf{Market-on-Open:} Market orders executed specifically when the market opens (often used in opening call auctions).
+    \item \textbf{Market-on-Close:} Market orders executed specifically at the closing price of the day.
+\end{itemize}
+
+\subsection{Quantity Instructions}
+These instructions impose conditions on the quantity to be executed.
+
+\subsubsection{Immediate-or-Cancel (IOC)}
+Also known as "Good-on-Sight" orders.
+\begin{itemize}
+    \item Must execute immediately at the limit price or better.
+    \item Any unexecuted portion is cancelled immediately.
+    \item Partial executions are allowed.
+\end{itemize}
+
+\subsubsection{Fill-or-Kill (FOK)}
+\begin{itemize}
+    \item The entire order must be executed immediately or cancelled in its entirety.
+    \item \textbf{Partial executions are NOT allowed.}
+\end{itemize}
+
+\subsubsection{All-or-None (AON)}
+\begin{itemize}
+    \item Requires full execution but does \textbf{not} demand immediacy.
+    \item The order sits in the order book until it can be executed completely in a single shot.
+\end{itemize}
+
+\subsubsection{Minimum Volume Orders}
+\begin{itemize}
+    \item Requires a minimum quantity to be executed; otherwise, the order will not execute.
+\end{itemize}
+
+\subsection{Display Instructions}
+Display instructions control the visibility of limit orders in the order book to prevent information leakage and adverse price movements.
+
+\subsubsection{Hidden Orders}
+\begin{itemize}
+    \item Completely invisible in the order book.
+    \item Existence is only known when a trade occurs against them (e.g., executing at a price better than the displayed best quote).
+\end{itemize}
+
+\subsubsection{Iceberg Orders}
+\begin{itemize}
+    \item Large orders that display only a small portion of their total size at a time.
+    \item Example: Selling 1,000 shares but revealing only 100 at a time. Once the first 100 execute, the next 100 are revealed.
+\end{itemize}
+
+\subsection{Spread Orders}
+Usually found in derivative markets. With spread orders, you try to buy a security with one expiration date and sell a related security with a different expiration date.
+
+\subsection{Execution Priority and Trade-offs}
+\begin{itemize}
+    \item \textbf{Priority:} Exchanges typically give priority to orders with no conditions. Regular market and limit orders usually execute before conditional orders (except for IOC/FOK which demand immediacy).
+    \item \textbf{Trade-off:} Adding instructions allows for specific execution strategies but may delay execution. Traders must decide if the condition is more critical than speed.
+    \item \textbf{Exchange Rules:} Not all instructions are permitted on every exchange. Traders must verify local rules.
+\end{itemize}
+
 \end{document}
