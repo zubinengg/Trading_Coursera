@@ -468,6 +468,7 @@ Display instructions control the visibility of limit orders in the order book to
 \begin{itemize}
     \item Completely invisible in the order book.
     \item Existence is only known when a trade occurs against them (e.g., executing at a price better than the displayed best quote).
+    \item \textbf{Example:} Suppose the displayed best bid and offer prices are \$40.00 and \$40.05 respectively. You submit a market order to buy shares, expecting to pay \$40.05 (the best ask). However, the order executes at \$40.03. This suggests there was a hidden sell order at \$40.03.
 \end{itemize}
 
 \subsubsection{Iceberg Orders}
@@ -485,5 +486,47 @@ Usually found in derivative markets. With spread orders, you try to buy a securi
     \item \textbf{Trade-off:} Adding instructions allows for specific execution strategies but may delay execution. Traders must decide if the condition is more critical than speed.
     \item \textbf{Exchange Rules:} Not all instructions are permitted on every exchange. Traders must verify local rules.
 \end{itemize}
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+\section{Liquidity}
+
+\subsection{Definition}
+Liquidity is defined as the ability to trade quickly, in the quantity you desire, and at a low cost. It is one of the most important characteristics of an exchange.
+\begin{itemize}
+    \item \textbf{Virtuous Cycle:} There is a common saying that "liquidity begets liquidity." Highly liquid marketplaces attract more traders, which in turn increases liquidity further.
+\end{itemize}
+
+\subsection{Dimensions of Liquidity}
+There are four main dimensions used to assess liquidity:
+
+\subsubsection{1. Immediacy}
+Immediacy measures how quickly trades of a given size can be executed at a given cost.
+\begin{itemize}
+    \item \textbf{Example:} If you want to buy 100 shares at a transaction cost of \$0.05 and can do so almost immediately, the market provides a high level of immediacy.
+\end{itemize}
+
+\subsubsection{2. Width}
+Width measures the cost of trading a given size. It is usually measured by the \textbf{Bid-Ask Spread}.
+\begin{itemize}
+    \item \textbf{Narrow Spread:} Indicates low transaction costs and a liquid market.
+    \item \textbf{Wide Spread:} Indicates an illiquid market.
+\end{itemize}
+
+\subsubsection{3. Depth}
+Depth measures the trade size that can be executed at a given cost.
+\begin{itemize}
+    \item \textbf{Concept:} If the bid-ask spread is \$0.05, how many shares can be traded without changing the spread?
+    \item \textbf{High Depth:} A large number of shares available at the best bid and ask prices allows for large orders without moving prices much.
+\end{itemize}
+
+\subsubsection{4. Resiliency}
+Resiliency measures how quickly prices revert to previous levels after a large trade is executed.
+\begin{itemize}
+    \item \textbf{Example:} Suppose a 10,000-share order moves prices by \$0.50 and widens the spread from \$0.05 to \$0.55. If traders refill the order book quickly, bringing prices and the spread back to original levels, the market is resilient.
+\end{itemize}
+
+\subsection{Conclusion}
+A liquid market allows traders to execute large orders with minimal price impact almost instantaneously. Even when prices move due to large orders, a liquid market is characterized by quick price reversion. Next, we will discuss how to measure transaction costs and the various benchmarks used.
 
 \end{document}
