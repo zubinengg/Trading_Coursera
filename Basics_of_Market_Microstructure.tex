@@ -743,8 +743,8 @@ VWAP is the trade-size weighted average price for the day.
 \]
 Since the opening price was a large trade at a very low price, VWAP is far lower than TWAP, which leads to a significantly higher implicit transaction cost when we use VWAP as a benchmark.
 
-\subsubsection{3. Implementation Shortfall (Decision-Time Midpoint)}
-The benchmark is the bid-ask midpoint at decision time ($M_d$).
+\subsubsection{3. Bid Ask Midpoint at Decision Time(Decision-Time Midpoint)}
+The benchmark is the bid-ask midpoint at decision time ($M_d$). You decide to buy 1,200 shares at 10:30AM when the bid point was was 46.065.
 \begin{itemize}
     \item Decision Time: 10:30 AM.
     \item Benchmark ($M_d$): 46.065.
@@ -797,4 +797,119 @@ In our example, the various benchmarks yielded very different values of transact
     \item On days when prices move against you, transaction costs will be positive (implicit cost).
 \end{itemize}
 Next time, we will take a closer look at the implementation shortfall method of calculating implicit transaction costs. This will further help us understand the cost incurred while trading.
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+\section{Implementation Shortfall}
+The Implementation Shortfall method is a comprehensive way to calculate transaction costs. Unlike other benchmarks that focus solely on execution prices, this method measures costs starting from the moment the decision to trade is made. It decomposes the total transaction cost into four distinct components, allowing traders to pinpoint the specific sources of costs (e.g., delays, market impact, or unexecuted orders).
+
+The four components are:
+\begin{enumerate}
+    \item Delay Cost
+    \item Change in Midpoint Cost
+    \item Effective Spread Cost
+    \item Opportunity Cost
+\end{enumerate}
+
+\subsection{Decomposition of Costs}
+
+\subsubsection{1. Delay Cost}
+This component captures the cost incurred due to the time lag between the decision to trade and the order's arrival at the exchange.
+\[
+    \text{Delay Cost} = X \times d \times (m_0 - m_d)
+\]
+Where:
+\begin{itemize}
+    \item $X$: Total order size.
+    \item $d$: Order direction (+1 for Buy, -1 for Sell).
+    \item $m_0$: Midpoint at order arrival time.
+    \item $m_d$: Midpoint at decision time.
+\end{itemize}
+
+\subsubsection{2. Change in Midpoint Cost}
+This measures the cost associated with price movements (market impact or volatility) between the time the order arrives and the time trades are actually executed.
+\[
+    \text{Change in Midpoint Cost} = \sum_{j} x_j \times d \times (m_j - m_0)
+\]
+Where:
+\begin{itemize}
+    \item $x_j$: Size of the $j$-th trade.
+    \item $m_j$: Midpoint at the time of the $j$-th trade.
+\end{itemize}
+
+\subsubsection{3. Effective Spread Cost}
+This captures the cost paid for liquidity (crossing the spread). It is the difference between the execution price and the midpoint at the time of execution.
+\[
+    \text{Effective Spread Cost} = \sum_{j} x_j \times d \times (p_j - m_j)
+\]
+Where:
+\begin{itemize}
+    \item $p_j$: Execution price of the $j$-th trade.
+\end{itemize}
+
+\subsubsection{4. Opportunity Cost}
+This component accounts for the cost (or missed profit) associated with the portion of the order that was \textbf{not} executed.
+\[
+    \text{Opportunity Cost} = (X - \sum_{j} x_j) \times d \times (p_N - m_0)
+\]
+Where:
+\begin{itemize}
+    \item $p_N$: Closing price (or last trade price) of the day.
+    \item $\sum x_j$: Total quantity executed.
+    \item $(X - \sum x_j)$: Quantity unexecuted.
+\end{itemize}
+
+\subsection{Example Calculation}
+Consider the previous scenario:
+\begin{itemize}
+    \item \textbf{Order:} Buy 1,200 shares ($X=1200, d=+1$).
+    \item \textbf{Midpoints:} Decision ($m_d$) = 46.065; Arrival ($m_0$) = 46.15.
+    \item \textbf{Executions:}
+          \begin{itemize}
+              \item Trade 1: 460 shares at midpoint 46.035.
+              \item Trade 2: 530 shares at midpoint 46.01.
+          \end{itemize}
+    \item \textbf{Closing Price ($p_N$):} 46.03.
+    \item \textbf{Effective Spread Cost:} Previously calculated as \$17.50.
+\end{itemize}
+
+\textbf{1. Delay Cost:}
+\[
+    1,200 \times 1 \times (46.15 - 46.065) = \$102.00
+\]
+\textit{Interpretation:} Prices rose significantly between decision and arrival, resulting in a high delay cost.
+
+\textbf{2. Change in Midpoint Cost:}
+\[
+    460(46.035 - 46.15) + 530(46.01 - 46.15) = -52.9 - 74.2 = -\$127.10
+\]
+\textit{Interpretation:} Prices fell after arrival, which favored the buyer, resulting in a negative cost (gain).
+
+\textbf{3. Effective Spread Cost:}
+\[
+    \$17.50
+\]
+
+\textbf{4. Opportunity Cost:}
+Unexecuted shares = $1,200 - (460 + 530) = 210$.
+\[
+    210 \times 1 \times (46.03 - 46.15) = -\$25.20
+\]
+\textit{Interpretation:} The price at the end of the day was lower than the arrival price. Not buying those 210 shares saved money compared to the arrival benchmark.
+
+\textbf{Total Implementation Shortfall:}
+\[
+    102.00 - 127.10 + 17.50 - 25.20 = -\$32.80
+\]
+The decomposition highlights that while the delay was costly (\$102), favorable price movements after arrival offset this, resulting in a net negative transaction cost.
+
+\subsection{Course Summary}
+This course covered the fundamental building blocks of trading and market microstructure:
+\begin{itemize}
+    \item \textbf{Financial Analysis:} Reading financial statements and using ratios to assess company health.
+    \item \textbf{Asset Pricing:} Understanding the risk-return relationship, diversification, and models like CAPM and APT.
+    \item \textbf{Trading Mechanics:} Types of orders (Market, Limit, Stop), order book dynamics, and liquidity dimensions.
+    \item \textbf{Transaction Costs:} Measuring explicit and implicit costs (Spread, Market Impact, Implementation Shortfall) to evaluate execution performance.
+\end{itemize}
+
 \end{document}
