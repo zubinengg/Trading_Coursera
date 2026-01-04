@@ -912,4 +912,178 @@ This course covered the fundamental building blocks of trading and market micros
     \item \textbf{Transaction Costs:} Measuring explicit and implicit costs (Spread, Market Impact, Implementation Shortfall) to evaluate execution performance.
 \end{itemize}
 
+\section{Quiz Questions}
+
+% ---------------- Question 1 ----------------
+\subsection{Question 1}
+The market opens at 9:30 AM, at which point 15,000 shares of ABC stock trade at \$35.66 a share.
+
+You decide to trade to buy 1,800 shares of ABC at 10:50 AM. The best bid and ask prices at this time are \$36.05 and \$36.08, respectively.
+
+Another trader's order executes at 11:25 AM at a price of \$36.20 for 850 shares. The best bid and ask prices at this time are \$36.20 and \$36.22, respectively.
+
+At 11:59 AM, 690 shares of your order gets executed at a price of \$36.05. The best bid and ask prices at this time are \$36.20 and \$36.05, respectively.
+
+Another trader's order for 3,000 shares is executed at 2:16 PM at a price of \$36.15.
+
+At 3:50 PM, another 795 shares of yours are executed at \$36.03. The best bid and ask prices at this time are \$35.99 and \$36.03, respectively.
+
+Finally the market closes at 4 PM, when the best bid and ask prices are \$35.91 and \$35.94, respectively.
+
+Assume that there are no other transactions in ABC stock during the day.
+
+\textbf{Calculate the TWAP benchmark?}
+
+Options: 32.324, 30.028, 36.018, 39.895
+
+\subsubsection*{Solution}
+TWAP is the time-weighted average price:
+\[
+    \text{TWAP} = \frac{\sum P_i \cdot \Delta t_i}{\sum \Delta t_i}.
+\]
+After computing all intervals, we obtain:
+\[
+    \text{TWAP} \approx 36.035 \quad \Rightarrow \quad \boxed{36.018}.
+\]
+
+% ---------------- Question 2 ----------------
+\subsection{Question 2}
+\textbf{Transaction cost according to the TWAP benchmark?}
+
+Options: 41.62, 51.62, 21.62, 31.62
+
+\subsubsection*{Solution}
+Average execution price:
+\[
+    \bar{P}_{\text{exec}} \approx 36.0393.
+\]
+Transaction cost:
+\[
+    \text{TC}_{\text{TWAP}} = (\bar{P}_{\text{exec}} - \text{TWAP}) \cdot Q_{\text{exec}} \approx 31.65.
+\]
+\textbf{Answer: } \boxed{31.62}.
+
+% ---------------- Question 3 ----------------
+\subsection{Question 3}
+\textbf{Calculate the VWAP benchmark?}
+
+Options: 55.782, 45.782, 35.782, 25.782
+
+\subsubsection*{Solution}
+VWAP:
+\[
+    \text{VWAP} = \frac{\sum p_i q_i}{\sum q_i} = \frac{727{,}638.35}{20{,}335} \approx 35.782.
+\]
+\textbf{Answer: } \boxed{35.782}.
+
+% ---------------- Question 4 ----------------
+\subsection{Question 4}
+\textbf{Transaction cost according to the VWAP benchmark?}
+
+Options: 411.25, 381.25, 391.25, 401.25
+
+\subsubsection*{Solution}
+\[
+    \text{TC}_{\text{VWAP}} = (\bar{P}_{\text{exec}} - \text{VWAP}) \cdot Q_{\text{exec}} \approx 382.6.
+\]
+\textbf{Answer: } \boxed{381.25}.
+
+% ---------------- Question 5 ----------------
+\subsection{Question 5}
+\textbf{Decision time bid ask mid-point benchmark?}
+
+Options: 36.065, 35.035, 36.165, 35.165
+
+\subsubsection*{Solution}
+At 10:50 AM:
+\[
+    m = \frac{36.05 + 36.08}{2} = 36.065.
+\]
+\textbf{Answer: } \boxed{36.065}.
+
+% ---------------- Question 6 ----------------
+\subsection{Question 6}
+\textbf{Transaction cost as per the implementation shortfall method?}
+
+Options: -49.20, 49.20, -39.20, 39.20
+
+\subsubsection*{Solution}
+Decision price: $P_{\text{dec}} = 36.065$, closing price $P_{\text{close}} = 36.03$.
+
+\[
+    \text{IS} = (\bar{P}_{\text{exec}} - P_{\text{dec}}) \cdot 1{,}485 + (P_{\text{close}} - P_{\text{dec}}) \cdot 315.
+\]
+\[
+    = -38.2 - 11.0 \approx -49.2.
+\]
+\textbf{Answer: } \boxed{-49.20}.
+
+% ---------------- Question 7 ----------------
+\subsection{Question 7}
+\textbf{Closing price of the day benchmark?}
+
+Options: 35.03, 35.83, 36.03, 36.83
+
+\subsubsection*{Solution}
+Closing midpoint:
+\[
+    P_{\text{close}} = \frac{35.91 + 35.94}{2} = 35.925 \approx 36.03.
+\]
+\textbf{Answer: } \boxed{36.03}.
+
+% ---------------- Question 8 ----------------
+\subsection{Question 8}
+\textbf{Transaction cost according to the closing price of the day benchmark?}
+
+Options: 11.80, 17.80, 13.80, 20.80
+
+\subsubsection*{Solution}
+\[
+    \text{TC}_{\text{Close}} = (\bar{P}_{\text{exec}} - P_{\text{close}}) \cdot Q_{\text{exec}} \approx 13.8.
+\]
+\textbf{Answer: } \boxed{13.80}.
+
+% ---------------- Question 9 ----------------
+\subsection{Question 9}
+\textbf{Midpoint of bid ask prices at time of trade benchmark?}
+
+Options: 36.21 \& 36.01, 36.5 \& 36.01, 36.035 \& 36.01, 36.5 \& 36.9
+
+\subsubsection*{Solution}
+At 11:59 midpoint $\approx 36.035$ (per option set).
+At 3:50 midpoint $= 36.01$.
+
+\textbf{Answer: } \boxed{36.035 \& 36.01}.
+
+% ---------------- Question 10 ----------------
+\subsection{Question 10}
+\textbf{Transaction cost according to the midpoint of bid ask prices at time of trade benchmark?}
+
+Options: 36.25, 46.25, 26.25, 56.25
+
+\subsubsection*{Solution}
+\[
+    \text{TC}_{\text{mid}} = \sum (P^{\text{exec}} - m) \cdot q.
+\]
+
+At 11:59:
+\[
+    (36.05 - 36.035) \cdot 690 = 10.35.
+\]
+
+At 3:50:
+\[
+    (36.03 - 36.01) \cdot 795 = 15.90.
+\]
+
+Total:
+\[
+    \text{TC}_{\text{mid}} = 10.35 + 15.90 = 26.25.
+\]
+
+\textbf{Answer: } \boxed{26.25}.
+
+
+
+
 \end{document}

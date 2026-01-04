@@ -1,0 +1,97 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, mathtools}
+\usepackage{tikz}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{parskip}
+\usepackage{tabularx}
+\usepackage[utf8]{inputenc}
+\usepackage{tgpagella}
+\usepackage[T1]{fontenc}
+\usepackage{array} % For better table features
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+
+\title{Liquidity Risk and the Financial Crisis}
+\author{Zubin}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+
+\section{Liquidity Risk and the Financial Crisis of 2007-2008}
+
+\subsection{Introduction}
+While previous sections defined liquidity in the context of financial ratios (e.g., Current Ratio) and market microstructure (e.g., Bid-Ask Spread), the Financial Crisis of 2007-2008 highlighted a systemic form of liquidity risk. This section explores how the evaporation of both funding and market liquidity acted as a primary accelerant during the crisis.
+
+\subsection{Types of Liquidity Risk}
+To understand the crisis, we must distinguish between two distinct but interrelated types of liquidity:
+
+\begin{enumerate}
+    \item \textbf{Funding Liquidity Risk:} The risk that a financial institution will be unable to settle its obligations with immediacy. This is related to the \textit{liability side} of the balance sheet. In the context of financial statement analysis, this is what ratios like the \textbf{Current Ratio} and \textbf{Quick Ratio} attempt to measure, though often statically.
+    \item \textbf{Market Liquidity Risk:} The risk that an asset cannot be sold in the market without a significant price discount. This is related to the \textit{asset side} of the balance sheet. In market microstructure terms, this manifests as a lack of \textbf{Depth} and \textbf{Resiliency}, and a widening of \textbf{Width} (Bid-Ask Spreads).
+\end{enumerate}
+
+\subsection{The Liquidity Spiral}
+A defining feature of the 2007-2008 crisis was the "Liquidity Spiral," a feedback loop where funding liquidity and market liquidity mutually reinforced each other's decline.
+
+\subsubsection{1. The Funding Shock}
+Banks and financial institutions relied heavily on short-term wholesale funding (e.g., commercial paper, repurchase agreements) to finance long-term assets (mortgage-backed securities). When concerns over subprime mortgages arose, lenders in the wholesale market pulled back.
+\begin{itemize}
+    \item Institutions faced a sudden inability to roll over short-term debt.
+    \item Despite appearing solvent on paper (Assets $>$ Liabilities), they faced an immediate cash shortage.
+\end{itemize}
+
+\subsubsection{2. Fire Sales and Market Liquidity}
+To raise cash to meet funding obligations, institutions were forced to sell assets. However, because many institutions were selling simultaneously, market liquidity evaporated.
+\begin{itemize}
+    \item \textbf{Loss of Depth:} The order books for these securities thinned out; there were few buyers at the "fair" price.
+    \item \textbf{Price Impact:} Large sell orders caused prices to plummet far below their fundamental value (high price impact).
+    \item \textbf{Widening Spreads:} Bid-ask spreads widened significantly, increasing transaction costs and further discouraging trade.
+\end{itemize}
+
+\subsubsection{3. The Feedback Loop}
+As asset prices fell due to fire sales, the value of the collateral held by banks decreased.
+\begin{itemize}
+    \item This triggered \textbf{margin calls} and further reduced borrowing capacity (Funding Liquidity worsens).
+    \item To meet new margin calls, banks had to sell even more assets (Market Liquidity worsens).
+\end{itemize}
+This vicious cycle transformed a liquidity problem into a solvency problem.
+
+\subsection{Solvency vs. Liquidity in Crisis}
+In \textit{Financial Statement Analysis}, we distinguish between solvency (long-term viability) and liquidity (short-term obligation meeting).
+
+\begin{itemize}
+    \item \textbf{Solvency Ratios:} Such as Debt-to-Equity, measure the proportion of debt.
+    \item \textbf{Liquidity Ratios:} Such as the Cash Ratio, measure cash availability.
+\end{itemize}
+
+During the crisis, institutions that might have been solvent in the long run (holding assets that would eventually recover) failed because they were illiquid in the short run. They were forced to realize losses at depressed market prices, which wiped out their equity capital.
+
+\subsection{Market Microstructure Breakdown}
+From a microstructure perspective, the crisis was characterized by a breakdown in the dimensions of liquidity defined in earlier notes:
+\begin{itemize}
+    \item \textbf{Immediacy:} It became impossible to execute trades immediately without massive price concessions.
+    \item \textbf{Resiliency:} Prices did not revert quickly after large trades; instead, they continued to fall.
+    \item \textbf{Transaction Costs:} Implicit transaction costs (specifically implementation shortfall) skyrocketed as the difference between decision prices and execution prices grew.
+\end{itemize}
+
+\subsection{Conclusion}
+The financial crisis demonstrated that liquidity is not just a static ratio on a balance sheet or a cost of trading. It is a dynamic risk factor. When funding liquidity dries up, it forces sales that destroy market liquidity, creating a systemic failure that traditional models (like standard CAPM) and static financial ratios may fail to predict.
+
+\noindent\rule{\linewidth}{1pt}
+%-----------------------------------------------------------------
+
+\end{document}
